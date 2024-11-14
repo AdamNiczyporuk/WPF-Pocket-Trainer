@@ -15,7 +15,7 @@ namespace KCK_Project__Console_Pocket_trainer_.Models
         public int TreningPlanId { get; set; }
         public TrainingPlan TreningPlan { get; set; }
 
-        public ICollection<ExerciseDone> ExercisesDone { get; set; }
+        public ICollection<ExerciseDone>? ExercisesDone { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
     }
