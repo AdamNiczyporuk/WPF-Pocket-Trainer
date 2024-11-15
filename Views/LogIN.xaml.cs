@@ -24,5 +24,24 @@ namespace WPF_Pocket_Trainer.Views
         {
             InitializeComponent();
         }
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
+
+            // Prosta weryfikacja
+            if (username == "admin" && password == "password")
+            {
+                MessageBox.Show("Login successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                // Otwórz nowy widok (jeśli istnieje)
+                // MainWindow main = new MainWindow();
+                // main.Show();
+                // this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
-using Spectre.Console.Rendering;
+
 using Newtonsoft.Json;
 using Microsoft.Identity.Client;
 using KCK_Project__Console_Pocket_trainer_.Models;

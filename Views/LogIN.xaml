@@ -4,9 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_Pocket_Trainer.Views"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="White">
+        <TextBlock Text="Login" 
+                   FontSize="24" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,108,0,0" />
+
+        <!-- Etykieta i pole dla nazwy użytkownika -->
+        <TextBlock Text="Username:" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,166,0,0" />
+        <TextBox x:Name="UsernameTextBox" 
+                 Width="200" 
+                 HorizontalAlignment="Center" 
+                 VerticalAlignment="Top" 
+                 Margin="0,187,0,0" />
+
+        <!-- Etykieta i pole dla hasła -->
+        <TextBlock Text="Password:" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,215,0,0" RenderTransformOrigin="0.523,0.538" />
+        <PasswordBox x:Name="PasswordBox" 
+                     Width="200" 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Top" 
+                     Margin="0,236,0,0" />
+
+        <!-- Przycisk logowania -->
+        <Button Content="Login" 
+                Width="100" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
+                Margin="0,282,0,0" 
+                Click="LoginButton_Click" />
+
     </Grid>
 </UserControl>
