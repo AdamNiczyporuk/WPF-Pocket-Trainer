@@ -18,7 +18,7 @@ namespace WPF_Pocket_Trainer.Views
     /// <summary>
     /// Interaction logic for LogIN.xaml
     /// </summary>
-    public partial class LogIN : UserControl
+    public partial class LogIN : Page
     {
         public LogIN()
         {
@@ -42,6 +42,10 @@ namespace WPF_Pocket_Trainer.Views
             {
                 MessageBox.Show("Invalid username or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private void SignInButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new SignIN());
         }
     }
 }

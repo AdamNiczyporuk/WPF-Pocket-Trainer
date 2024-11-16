@@ -43,9 +43,10 @@ namespace WPF_Pocket_Trainer.Views
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-
+            // Przejdź do strony rejestracji
+            this.NavigationService.Navigate(new Uri("Views/SignUP.xaml", UriKind.Relative));
         }
     }
 }
