@@ -42,5 +42,10 @@ namespace WPF_Pocket_Trainer.Views
                 MessageBox.Show("Invalid username or password");
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
