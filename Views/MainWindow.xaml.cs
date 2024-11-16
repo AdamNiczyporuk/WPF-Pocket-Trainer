@@ -23,7 +23,7 @@ namespace WPF_Pocket_Trainer
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new SignIN());
+            MainFrame.Navigate(new LogIN());
 
         }
        

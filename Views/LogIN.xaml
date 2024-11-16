@@ -59,30 +59,14 @@
            VerticalAlignment="Top"
            Margin="0,239,0,0" Height="23" >
         </PasswordBox>
-
-        <Button Content="Log In" 
-             Width="200" 
-             Background="#4CAF50" 
-             Foreground="White" 
-             FontWeight="Bold" 
-             Style="{StaticResource RoundedButtonStyle}" 
-             HorizontalAlignment="Center"
-             Margin="0,281,0,123"
-             Click="LoginButton_Click"/>
         <TextBlock Text="OR:" 
          HorizontalAlignment="Center" 
          VerticalAlignment="Top" 
          Foreground="White"
          Margin="0,316,0,0"  />
-        <Button Content="Sign In" 
-         Width="200" 
-         Background="#4CAF50" 
-         Foreground="White" 
-         FontWeight="Bold" 
-         Style="{StaticResource RoundedButtonStyle}" 
-         HorizontalAlignment="Center"
-         Margin="0,337,0,67"
-         Click="LoginButton_Click"/>
+        <Button Content="LogIN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Left" Margin="385,291,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.557,0.541"/>
+        <Button Content="SignIN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Left" Margin="382,350,0,0" VerticalAlignment="Top"/>
+
 
 
 
