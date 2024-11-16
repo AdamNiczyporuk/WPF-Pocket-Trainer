@@ -9,6 +9,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Figgle;
+using WPF_Pocket_Trainer.Views;
+
 namespace WPF_Pocket_Trainer
 {
     /// <summary>
@@ -21,28 +23,10 @@ namespace WPF_Pocket_Trainer
         public MainWindow()
         {
             InitializeComponent();
-            
-            
-        }
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            string username = UsernameTextBox.Text;
-            string password = PasswordBox.Password;
+            MainFrame.Navigate(new SignIN());
 
-            // Prosta weryfikacja
-            if (username == "admin" && password == "password")
-            {
-                MessageBox.Show("Login successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                // Otwórz nowy widok (jeśli istnieje)
-                // MainWindow main = new MainWindow();
-                // main.Show();
-                // this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
+       
 
 
     }

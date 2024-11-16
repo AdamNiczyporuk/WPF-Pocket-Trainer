@@ -7,85 +7,8 @@ xmlns:local="clr-namespace:WPF_Pocket_Trainer"
 mc:Ignorable="d"
 Title="StartWindow" Height="450" Width="800"
 Background="#000000">
-    <Grid >
-
-        <TextBlock Text="Welcome to Pocket Trainer" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Top" 
-                   Margin="0,44,0,0" 
-                   FontSize="24" 
-                   FontWeight="Bold" 
-                   Foreground="White"/>
-
-        <Border Width="256" Height="291"
-                Background="#212529"
-                CornerRadius="25"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top" 
-                Margin="0,124,0,0"/>
-
-        <TextBlock Text="Log In" 
-                    FontSize="24" 
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Top"
-                    FontWeight="Bold" 
-                    Foreground="White"
-                     Margin="0,144,0,0" />
-
-        <!-- Etykieta i pole dla nazwy użytkownika -->
-        <TextBlock Text="Username:" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Top" 
-                   Foreground="White"
-                Margin="0,193,0,0" />
-        <TextBox x:Name="UsernameTextBox" 
-                 Width="200"
-                 Style="{StaticResource Textbox1}"
-                 HorizontalAlignment="Center" 
-                 VerticalAlignment="Top" 
-                 Margin="0,214,0,0" Height="23" />
-
-        <!-- Etykieta i pole dla hasła -->
-        <TextBlock Text="Password:" 
-             HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Foreground="White"
-            Margin="376,242,0,0"  />
-
-        <PasswordBox x:Name="PasswordBox" 
-              Width="200" 
-              Style="{StaticResource Textbox2}"
-              HorizontalAlignment="Center" 
-              VerticalAlignment="Top"
-              Margin="0,263,0,0" Height="23" >
-        </PasswordBox>
-
-        <Button Content="Log In" 
-                Width="200" 
-                Background="#4CAF50" 
-                Foreground="White" 
-                FontWeight="Bold" 
-                Style="{StaticResource RoundedButtonStyle}" 
-                HorizontalAlignment="Center"
-                Margin="0,305,0,99"
-                Click="LoginButton_Click"/>
-        <TextBlock Text="OR:" 
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Top" 
-            Foreground="White"
-            Margin="0,340,0,0"  />
-        <Button Content="Sign In" 
-            Width="200" 
-            Background="#4CAF50" 
-            Foreground="White" 
-            FontWeight="Bold" 
-            Style="{StaticResource RoundedButtonStyle}" 
-            HorizontalAlignment="Center"
-            Margin="0,361,0,43"
-            Click="LoginButton_Click"/>
-
-
-
+    <Grid>
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
     </Grid>
 
 </Window>
