@@ -19,6 +19,7 @@ namespace WPF_Pocket_Trainer
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

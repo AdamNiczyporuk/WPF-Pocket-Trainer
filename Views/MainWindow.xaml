@@ -6,8 +6,8 @@ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 xmlns:local="clr-namespace:WPF_Pocket_Trainer"
 mc:Ignorable="d"
 Title="StartWindow" Height="450" Width="800"
-Background="#F4F4F9">
-    <Grid>
+Background="#000000">
+    <Grid >
 
         <TextBlock Text="Welcome to Pocket Trainer" 
                    HorizontalAlignment="Center" 
@@ -15,37 +15,48 @@ Background="#F4F4F9">
                    Margin="0,44,0,0" 
                    FontSize="24" 
                    FontWeight="Bold" 
-                   Foreground="#333"/>
+                   Foreground="White"/>
+        
+        
 
-        <!-- Kontener dla przycisków -->
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" >
-            <Button Content="Sign In" 
-                    Width="200" Height="40" 
-                    Background="#4CAF50" 
-                    Foreground="White" 
-                    FontWeight="Bold" 
-                    Style="{StaticResource RoundedButtonStyle}" 
-                      Margin="0,5"
-                    Click="SignINButton_Click"/>
+                   
+                 
 
-            <Button Content="Log In" 
-                    Width="200" Height="40" 
-                    Background="#4CAF50" 
-                    Foreground="White" 
-                    FontWeight="Bold" 
-                    Style="{StaticResource RoundedButtonStyle}" 
-                      Margin="0,5"
-                    Click="LoginButton_Click"/>
+        <Border Width="262" Height="215"
+                Background="#212529"
+                CornerRadius="25"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" Margin="0,124,0,0">
+            <!-- Kontener dla przycisków -->
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Content="Sign In" 
+                        Width="200" Height="40" 
+                        Background="#4CAF50" 
+                        Foreground="White" 
+                        FontWeight="Bold" 
+                        Style="{StaticResource RoundedButtonStyle}" 
+                        HorizontalAlignment="Center"
+                        Click="SignINButton_Click"/>
 
-            <Button Content="Exit" 
-                    Width="200" Height="40" 
-                    Background="#F44336" 
-                    Foreground="White" 
-                    FontWeight="Bold" 
-                    Style="{StaticResource RoundedButtonStyle}" 
-                     Margin="0,5"
-                    Click="ExitButton_Click"/>
-        </StackPanel>
+                <Button Content="Log In" 
+                        Width="200" Height="40" 
+                        Background="#4CAF50" 
+                        Foreground="White" 
+                        FontWeight="Bold" 
+                        Style="{StaticResource RoundedButtonStyle}" 
+                        HorizontalAlignment="Center"
+                        Margin="10"
+                        Click="LoginButton_Click"/>
+                <Button Content="Exit" 
+                        Width="200" Height="40" 
+                        Background="#F44336" 
+                        Foreground="White" 
+                        FontWeight="Bold" 
+                        Margin="25"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="ExitButton_Click"/>
+            </StackPanel>
+        </Border>
 
     </Grid>
 
