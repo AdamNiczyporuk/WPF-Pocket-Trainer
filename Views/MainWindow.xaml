@@ -5,8 +5,48 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 xmlns:local="clr-namespace:WPF_Pocket_Trainer"
 mc:Ignorable="d"
-Title="MainWindow" Height="450" Width="800">
+Title="StartWindow" Height="450" Width="800"
+Background="#F4F4F9">
     <Grid>
-        <TextBlock Text="HELLO MARIOLA" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+
+        <TextBlock Text="Welcome to Pocket Trainer" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,44,0,0" 
+                   FontSize="24" 
+                   FontWeight="Bold" 
+                   Foreground="#333"/>
+
+        <!-- Kontener dla przycisków -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" >
+            <Button Content="Sign In" 
+                    Width="200" Height="40" 
+                    Background="#4CAF50" 
+                    Foreground="White" 
+                    FontWeight="Bold" 
+                    Style="{StaticResource RoundedButtonStyle}" 
+                      Margin="0,5"
+                    Click="SignINButton_Click"/>
+
+            <Button Content="Log In" 
+                    Width="200" Height="40" 
+                    Background="#4CAF50" 
+                    Foreground="White" 
+                    FontWeight="Bold" 
+                    Style="{StaticResource RoundedButtonStyle}" 
+                      Margin="0,5"
+                    Click="LoginButton_Click"/>
+
+            <Button Content="Exit" 
+                    Width="200" Height="40" 
+                    Background="#F44336" 
+                    Foreground="White" 
+                    FontWeight="Bold" 
+                    Style="{StaticResource RoundedButtonStyle}" 
+                     Margin="0,5"
+                    Click="ExitButton_Click"/>
+        </StackPanel>
+
     </Grid>
+
 </Window>
