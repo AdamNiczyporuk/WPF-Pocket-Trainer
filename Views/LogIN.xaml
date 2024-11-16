@@ -6,43 +6,76 @@
              xmlns:local="clr-namespace:WPF_Pocket_Trainer.Views"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="White">
-    <Grid>
-        <TextBlock Text="Login" 
-                   FontSize="24" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Top" 
-                   Margin="0,108,0,0" />
+             Background="Black">
+    <Grid >
+
+        <TextBlock Text="Welcome to Pocket Trainer" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Top" 
+               Margin="0,44,0,0" 
+               FontSize="24" 
+               FontWeight="Bold" 
+               Foreground="White"/>
+
+        <Border Width="256" Height="264"
+            Background="#212529"
+            CornerRadius="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top" Margin="0,124,0,0"/>
+
+        <TextBlock Text="Log In" 
+                FontSize="24" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top"
+                FontWeight="Bold" 
+                Foreground="White"
+                 Margin="0,143,0,0" />
 
         <!-- Etykieta i pole dla nazwy użytkownika -->
         <TextBlock Text="Username:" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Top" 
-                   Margin="0,166,0,0" />
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+               Foreground="White"
+            Margin="0,201,0,0" />
         <TextBox x:Name="UsernameTextBox" 
-                 Width="200" 
-                 HorizontalAlignment="Center" 
-                 VerticalAlignment="Top" 
-                 Margin="0,187,0,0" />
+             Width="200" 
+             HorizontalAlignment="Center" 
+             VerticalAlignment="Top" 
+             Margin="0,225,0,0" />
 
         <!-- Etykieta i pole dla hasła -->
         <TextBlock Text="Password:" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Top" 
-                   Margin="0,215,0,0" RenderTransformOrigin="0.523,0.538" />
-        <PasswordBox x:Name="PasswordBox" 
-                     Width="200" 
-                     HorizontalAlignment="Center" 
-                     VerticalAlignment="Top" 
-                     Margin="0,236,0,0" />
+         HorizontalAlignment="Left" 
+        VerticalAlignment="Top" 
+        Foreground="White"
+        Margin="377,248,0,0" RenderTransformOrigin="0.523,0.538" />
 
-        <!-- Przycisk logowania -->
-        <Button Content="Login" 
-                Width="100" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Top" 
-                Margin="0,282,0,0" 
-                Click="LoginButton_Click" />
+        <PasswordBox x:Name="PasswordBox" 
+         Width="200" 
+         HorizontalAlignment="Center" 
+         VerticalAlignment="Top" 
+         Margin="0,268,0,0" RenderTransformOrigin="0.5,0.5" >
+            <PasswordBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-4.298"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.675"/>
+                </TransformGroup>
+            </PasswordBox.RenderTransform>
+        </PasswordBox>
+
+        <Button Content="Log In" 
+            Width="200" Height="40" 
+            Background="#4CAF50" 
+            Foreground="White" 
+            FontWeight="Bold" 
+            Style="{StaticResource RoundedButtonStyle}" 
+            HorizontalAlignment="Center"
+            Margin="0,305,0,89"
+            Click="LoginButton_Click"/>
+
+
 
     </Grid>
 </UserControl>
