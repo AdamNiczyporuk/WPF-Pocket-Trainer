@@ -16,7 +16,7 @@ namespace WPF_Pocket_Trainer.ViewModels
 
         public RelayCommand LogOutCommand { get; set; }
         public TrainignsViewModel TrainignsVM { get; set; }
-        public SettingViewModel SettingVM { get; set; }
+        public SettingsViewModel SettingVM { get; set; }
 
         private object _currentView;
 
@@ -35,7 +35,7 @@ namespace WPF_Pocket_Trainer.ViewModels
         public DashbordModel()
         {
             TrainignsVM = new TrainignsViewModel();
-            SettingVM = new SettingViewModel();
+            SettingVM = new SettingsViewModel();
             CurrentView = TrainignsVM;
 
             TrainingsViewCommand = new RelayCommand(o =>

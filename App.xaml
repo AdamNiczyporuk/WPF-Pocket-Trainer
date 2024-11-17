@@ -15,9 +15,10 @@
             <DataTemplate DataType="{x:Type viewModels:TrainignsViewModel}">
                 <views:TrainingsView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModels:SettingViewModel}">
+            <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
                 <views:SettingsView/>
             </DataTemplate>
+
 
 
             <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
