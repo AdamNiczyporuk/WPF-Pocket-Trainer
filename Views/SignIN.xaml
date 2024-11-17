@@ -8,63 +8,55 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SignIN"
       Background="Black">
-    
+
 
     <Grid >
         <TextBlock Text="Welcome to Pocket Trainer" 
-              HorizontalAlignment="Center" 
-              VerticalAlignment="Top" 
-              Margin="0,44,0,0" 
-              FontSize="24" 
-              FontWeight="Bold" 
-              Foreground="White"/>
-
-        <Border Width="256" Height="291"
-           Background="#212529"
-           CornerRadius="25"
-           HorizontalAlignment="Center"
-           VerticalAlignment="Top" 
-           Margin="0,105,0,0"/>
-
-        <TextBlock Text="Sign In" 
-               FontSize="24" 
-               HorizontalAlignment="Center" 
-               VerticalAlignment="Top"
-               FontWeight="Bold" 
-               Foreground="White"
-                Margin="0,120,0,0" />
-
-        <!-- Etykieta i pole dla nazwy użytkownika -->
-        <TextBlock Text="Username:" 
-           HorizontalAlignment="Center" 
-           VerticalAlignment="Top" 
-              Foreground="White"
-           Margin="0,168,0,0" />
-        <TextBox Style="{DynamicResource RoundTextBox}" x:Name="UsernameTextBox" 
-            Width="200"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Top" 
-            Margin="0,189,0,0" Height="23" />
-
-        <TextBlock Text="Password:" 
-        HorizontalAlignment="Left" 
-        VerticalAlignment="Center" 
-        Foreground="White" RenderTransformOrigin="0.513,0.604" Margin="372,0,0,0"        
-                   />
-        <PasswordBox Style="{DynamicResource RounPasswordBox}"  x:Name="PasswordBox" 
-         Width="200" 
-         HorizontalAlignment="Center" 
-         VerticalAlignment="Top"
-         Margin="0,238,0,0" Height="24"/>
-
-        <TextBlock Text="OR:" 
        HorizontalAlignment="Center" 
        VerticalAlignment="Top" 
-       Foreground="White"
-       Margin="0,316,0,0" RenderTransformOrigin="0.535,1.107"  />
-        <Button Template="{DynamicResource RoundButton}"  Content="Sign IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,286,0,0" VerticalAlignment="Top" Height="25" Width="132" Click="SignInButton_Click"/>
-        <Button Template="{DynamicResource RoundButton}" Content="Log In" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,337,0,0" VerticalAlignment="Top" Height="25" Width="132"  Click="LoginButton_Click"/>
+       Margin="0,37,0,0" 
+       FontSize="24" 
+       FontWeight="Bold" 
+       Foreground="White"/>
 
+        <Border Width="256" Height="291"
+    Background="#212529"
+    CornerRadius="25"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Top" 
+    Margin="0,98,0,0">
+
+        </Border>
+
+        <TextBlock Text="Log IN" 
+        FontSize="24" 
+        HorizontalAlignment="Center" 
+        VerticalAlignment="Top"
+        FontWeight="Bold" 
+        Foreground="White"
+         Margin="0,113,0,0" />
+
+        <!-- Etykieta i pole dla nazwy użytkownika -->
+        <TextBox Style="{DynamicResource RoundTextBox}" x:Name="UsernameTextBox" 
+     Width="200"
+     HorizontalAlignment="Center" 
+     VerticalAlignment="Top" 
+     Margin="0,171,0,0" Height="23" RenderTransformOrigin="0.501,0.512" />
+        <PasswordBox Style="{DynamicResource RounPasswordBox}"  x:Name="PasswordBox" 
+  Width="200" 
+  HorizontalAlignment="Center" 
+  VerticalAlignment="Top"
+  Margin="0,226,0,0" Height="23"/>
+
+        <TextBlock Text="OR:" 
+HorizontalAlignment="Center" 
+VerticalAlignment="Top" 
+Foreground="White"
+Margin="0,309,0,0" RenderTransformOrigin="0.535,1.107"  />
+        <Button Template="{DynamicResource RoundButton}"  Content="Sing IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,279,0,0" VerticalAlignment="Top" Height="25" Width="132" Click="SignInButton_Click"/> 
+        <Button Template="{DynamicResource RoundButton}" Content="Log IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,330,0,0" VerticalAlignment="Top" Height="25" Width="132"  Click="LoginButton_Click"/>
+        <Label Content="Username:" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Password:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,199,0,0" Foreground="White" />
 
 
 

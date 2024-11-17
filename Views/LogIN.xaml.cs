@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Pocket_Trainer.Controllers;
 
 namespace WPF_Pocket_Trainer.Views
 {
@@ -20,9 +21,11 @@ namespace WPF_Pocket_Trainer.Views
     /// </summary>
     public partial class LogIN : Page
     {
+        private readonly LogINController _loginController;
         public LogIN()
         {
             InitializeComponent();
+            _loginController = new LogINController();
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -30,17 +33,13 @@ namespace WPF_Pocket_Trainer.Views
             string password = PasswordBox.Password;
 
             // Prosta weryfikacja
-            if (username == "admin" && password == "password")
+            if (_loginController.ValidateData(username, password))
             {
-                MessageBox.Show("Login successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                // Otwórz nowy widok (jeśli istnieje)
-                // MainWindow main = new MainWindow();
-                // main.Show();
-                // this.Close();
+                _loginController.ShowSuccessMessage();
             }
             else
             {
-                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+             _loginController.ShowErrorMessage();
             }
         }
         private void SignInButton_Click(object sender, RoutedEventArgs e)

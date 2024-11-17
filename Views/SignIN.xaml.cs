@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Pocket_Trainer.Controllers;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WPF_Pocket_Trainer.Views
 {
@@ -20,33 +22,29 @@ namespace WPF_Pocket_Trainer.Views
     /// </summary>
     public partial class SignIN : Page
     {
+        private readonly SignINController _SignINController;
         public SignIN()
         {
             InitializeComponent();
+            _SignINController = new SignINController();
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            // Sprawdzanie danych logowania
-            string username = UsernameTextBox.Text;
-            string password = PasswordBox.Password;
-
-            if (username == "admin" && password == "password") // Przykładowa logika logowania
-            {
-                // Po zalogowaniu, przejdź do głównego widoku
-                var mainWindow = new MainWindow(); // Główne okno aplikacji
-                mainWindow.Show();
-                ((Window)this.Parent).Close(); // Zamknij stronę logowania
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password");
-            }
+            NavigationService.Navigate(new LogIN());
         }
 
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-            // Przejdź do strony rejestracji
-            this.NavigationService.Navigate(new Uri("Views/SignUP.xaml", UriKind.Relative));
+           
+            if (_SignINController.ValidateData(UsernameTextBox.Text, PasswordBox.Password))
+            {
+                _SignINController.ShowMessage("User created successfully!");
+            }
+            else
+            {
+                _SignINController.ShowMessage("User already exists if it's you please login\nor try other username.");
+            }
+           
         }
     }
 }

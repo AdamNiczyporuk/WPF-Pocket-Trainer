@@ -26,8 +26,10 @@ namespace WPF_Pocket_Trainer
             MainFrame.Navigate(new LogIN());
 
         }
-       
 
+        private void MainFrame_Navigated(object sender, NavigationEventArgs e)
+        {
 
+        }
     }
 }
