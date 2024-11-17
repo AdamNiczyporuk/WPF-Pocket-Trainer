@@ -10,12 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dashboard\Images\fit.png" />
     <None Remove="Dashboard\Images\Kot.png" />
+    <None Remove="Dashboard\Images\restaurant.png" />
+    <None Remove="Dashboard\Images\settings.png" />
     <None Remove="Dashboard\Images\x.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Figgle" Version="0.5.1" />
+    <PackageReference Include="MaterialDesignInXamlToolkitAddOns" Version="0.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
@@ -32,7 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Dashboard\Images\fit.png" />
     <Resource Include="Dashboard\Images\Kot.png" />
+    <Resource Include="Dashboard\Images\restaurant.png" />
+    <Resource Include="Dashboard\Images\settings.png" />
     <Resource Include="Dashboard\Images\x.png" />
   </ItemGroup>
 

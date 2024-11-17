@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
 using WPF_Pocket_Trainer.Dashboard.Core;
+using WPF_Pocket_Trainer.Views;
 namespace WPF_Pocket_Trainer.ViewModels
 {
     class DashbordModel : ObservableObject
@@ -11,6 +14,7 @@ namespace WPF_Pocket_Trainer.ViewModels
         public RelayCommand TrainingsViewCommand { get; set; }
         public RelayCommand SettingsViewCommand { get; set; }
 
+        public RelayCommand LogOutCommand { get; set; }
         public TrainignsViewModel TrainignsVM { get; set; }
         public SettingViewModel SettingVM { get; set; }
 
@@ -43,6 +47,26 @@ namespace WPF_Pocket_Trainer.ViewModels
             {
                 CurrentView = SettingVM;
             });
+            LogOutCommand = new RelayCommand(ExecuteLogOut);
+
+        }
+
+        private void ExecuteLogOut(object obj)
+        {
+            // Pobierz bieżące okno
+            var currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+
+            if (currentWindow != null)
+            {
+                // Otwórz nowe okno logowania
+                LogINView logINView = new LogINView();
+                logINView.Left = currentWindow.Left;
+                logINView.Top = currentWindow.Top;
+                logINView.Show();
+
+                // Zamknij bieżące okno
+                currentWindow.Close();
+            }
         }
     }
 }

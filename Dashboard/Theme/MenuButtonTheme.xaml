@@ -22,7 +22,7 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
-        
+
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True" >
                 <Setter Property="Background" Value="#22202f"/>

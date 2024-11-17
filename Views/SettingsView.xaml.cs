@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,27 @@ namespace WPF_Pocket_Trainer.Views
     /// </summary>
     public partial class SettingsView : UserControl
     {
-        public SettingsView()
+        public ObservableCollection<SettingItem> Settings { get; set; }
+        public class SettingItem
+        {
+            public string Property { get; set; }
+            public string Value { get; set; }
+        }
+
+        public SettingsView(object settingsData)
         {
             InitializeComponent();
+
+            Settings = new ObservableCollection<SettingItem>
+        {
+            new SettingItem { Property = "Username", Value = "JohnDoe" },
+            new SettingItem { Property = "Email", Value = "john.doe@example.com" }
+        };
+
+
         }
+
+       
     }
+   
 }

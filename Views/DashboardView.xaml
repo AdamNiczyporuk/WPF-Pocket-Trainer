@@ -29,6 +29,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
                 <RowDefinition />
+
             </Grid.RowDefinitions>
             
            
@@ -39,35 +40,55 @@
            FontSize="22"
            FontFamily="/Fonts/Poppins-Regular.ttf"/>
             
+           <Image Source="/Dashboard/Images/x.png" 
+               VerticalAlignment="Top"
+               HorizontalAlignment="Right"
+               Height="15"
+               Width="15"
+               Margin="0,5,10,0"
+               MouseDown="CloseButton_Click"
+                Grid.Row="0"
+                Grid.Column="1"
+               />
 
 
-            <StackPanel Grid.Row="1" >
-                <RadioButton Content="Trainings" 
-                             Height="50" 
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="True"
-                             Command="{Binding TrainingsViewCommand}"/>
-                <RadioButton Content="Diet" 
-                               Height="50" 
-                               Foreground="White"
-                               FontSize="14"
-                               Style="{StaticResource MenuButtonTheme}"/>
-                <RadioButton Content="Settings" 
-                                      Height="50" 
-                                      Foreground="White"
-                                      FontSize="14"
-                                      Style="{StaticResource MenuButtonTheme}"
-                                      Command="{Binding SettingsViewCommand}"/>
-                <RadioButton Content="Log Out" 
-                              Height="50" 
-                              Foreground="White"
-                              FontSize="14"
-                              Style="{StaticResource MenuButtonTheme}"/>
-            </StackPanel>
 
-            
+            <DockPanel Grid.Row="1">
+                <StackPanel DockPanel.Dock="Top">
+
+                    <RadioButton Content="Trainings" 
+                     Height="50" 
+                     Foreground="White"
+                     IsChecked="True"
+                     FontSize="14"
+                     Style="{StaticResource MenuButtonTheme}"
+                     Command="{Binding TrainingsViewCommand}">
+                    </RadioButton>
+                    <RadioButton Content="Diet" 
+                     Height="50" 
+                    
+                     Foreground="White"
+                     FontSize="14"
+                     Style="{StaticResource MenuButtonTheme}"/>
+                    <RadioButton Content="Settings" 
+                     Height="50" 
+                     Foreground="White"
+                     FontSize="14" 
+                     Style="{StaticResource MenuButtonTheme}"
+                     Command="{Binding SettingsViewCommand}"/>
+                    <RadioButton Content="Log Out" 
+                     Height="50" 
+                     Foreground="White"
+                     FontSize="14"
+                     Style="{StaticResource MenuButtonTheme}"
+                     DockPanel.Dock="Bottom"
+                     Command="{Binding LogOutCommand}"
+                     Margin="0,300,0,0"/>
+                </StackPanel>
+                
+            </DockPanel>
+
+
 
             <ContentControl 
                             Grid.Column="1"
