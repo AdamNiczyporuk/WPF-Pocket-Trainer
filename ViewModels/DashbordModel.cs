@@ -8,7 +8,7 @@ namespace WPF_Pocket_Trainer.ViewModels
 {
     class DashbordModel : ObservableObject
     {
-        public RelayCommand DashboardViewCommand { get; set; }
+        public RelayCommand TrainingsViewCommand { get; set; }
         public RelayCommand SettingsViewCommand { get; set; }
 
         public TrainignsViewModel TrainignsVM { get; set; }
@@ -33,6 +33,16 @@ namespace WPF_Pocket_Trainer.ViewModels
             TrainignsVM = new TrainignsViewModel();
             SettingVM = new SettingViewModel();
             CurrentView = TrainignsVM;
+
+            TrainingsViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = TrainignsVM;
+            });
+
+            SettingsViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = SettingVM;
+            });
         }
     }
 }

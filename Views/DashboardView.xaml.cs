@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace WPF_Pocket_Trainer.Views
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for DashboardView.xaml
     /// </summary>
-    public partial class Dashboard : Window
+    public partial class DashboardView : Window
     {
-        public Dashboard()
+        public DashboardView()
         {
             InitializeComponent();
         }

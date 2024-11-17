@@ -38,7 +38,15 @@ namespace WPF_Pocket_Trainer.Views
            
             if (_SignINController.ValidateData(UsernameTextBox.Text, PasswordBox.Password))
             {
+
                 _SignINController.ShowMessage("User created successfully!");
+
+                // Open DashboardView window
+                DashboardView dashboardView = new DashboardView();
+                dashboardView.Show();
+
+                // Close the current SignIN page's window
+                Window.GetWindow(this).Close();
             }
             else
             {
