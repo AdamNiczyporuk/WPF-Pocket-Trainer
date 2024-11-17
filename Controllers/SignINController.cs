@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using KCK_Project__Console_Pocket_trainer_.Models;
 using System.Windows;
 using Microsoft.IdentityModel.Tokens;
+using WPF_Pocket_Trainer.Models;
 
 
 namespace WPF_Pocket_Trainer.Controllers
@@ -37,6 +38,7 @@ namespace WPF_Pocket_Trainer.Controllers
                         UserName = username,
                         Password = password
                     };
+                    UserSession.CurrentUser = user;
                     userRepository.Add(user);
                     return true;
                 }
