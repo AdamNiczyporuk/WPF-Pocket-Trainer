@@ -6,8 +6,33 @@
              xmlns:local="clr-namespace:WPF_Pocket_Trainer.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="#1b1b1b">
-    <Grid>
+            >
+    <Border CornerRadius="10"  Background="#1b1d1e">
+        <StackPanel Margin="20,5,5,0">
+            <TextBlock Text="User Information"
+                       FontSize="20" FontWeight="Bold" 
+                       Margin="0,0,0,10" Foreground="white"/>
+
+            <TextBlock Text="User Name: " 
+                       FontWeight="Bold" Foreground="white"/>
+            <TextBlock Text="{Binding UserName}" 
+                       Margin="0,0,0,10" Foreground="white"/>
+
+            <TextBlock Text="Height: "
+                       FontWeight="Bold" 
+                       Foreground="white"/>
+            <TextBlock Text="{Binding Height}"
+                       Margin="0,0,0,10"
+                       Foreground="white"/>
+
+            <TextBlock Text="Weight: "
+                       FontWeight="Bold" 
+                       Foreground="white"
+                       />
+            <TextBlock Text="{Binding Weight}"
+                       Margin="0,0,0,10"
+                       Foreground="white"/>
             
-    </Grid>
+        </StackPanel>
+     </Border>
 </UserControl>

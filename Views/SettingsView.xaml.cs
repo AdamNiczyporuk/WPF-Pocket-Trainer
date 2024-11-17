@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KCK_Project__Console_Pocket_trainer_.Models;
+using WPF_Pocket_Trainer.Models;
+
 
 namespace WPF_Pocket_Trainer.Views
 {
@@ -22,7 +25,9 @@ namespace WPF_Pocket_Trainer.Views
     {
         public SettingsView()
         {
+            this.DataContext = UserSession.CurrentUser;
             InitializeComponent();
+            
         }
     }
 }
