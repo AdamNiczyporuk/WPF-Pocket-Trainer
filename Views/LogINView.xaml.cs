@@ -10,22 +10,39 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Pocket_Trainer.Controllers;
 
 namespace WPF_Pocket_Trainer.Views
 {
     /// <summary>
-    /// Interaction logic for LogIN.xaml
+    /// Interaction logic for Test.xaml
     /// </summary>
-    public partial class LogIN : Page
+    public partial class LogIN : Window
     {
+
+
         private readonly LogINController _loginController;
         public LogIN()
         {
             InitializeComponent();
             _loginController = new LogINController();
+        }
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            if (e.ChangedButton == MouseButton.Left && e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+        public void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+            
         }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
@@ -44,12 +61,14 @@ namespace WPF_Pocket_Trainer.Views
             }
             else
             {
-             _loginController.ShowErrorMessage();
+                _loginController.ShowErrorMessage();
             }
         }
-        private void SignInButton_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new SignIN());
-        }
+        //private void SignInButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    NavigationService.Navigate(new SignIN());
+        //}
     }
+
+     
 }

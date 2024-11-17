@@ -1,63 +1,117 @@
-﻿<Page x:Class="WPF_Pocket_Trainer.Views.LogIN"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WPF_Pocket_Trainer.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Marek"
-      Background="Black">
-
-    <Grid >
-        <TextBlock Text="Welcome to Pocket Trainer" 
-       HorizontalAlignment="Center" 
-       VerticalAlignment="Top" 
-       Margin="0,37,0,0" 
-       FontSize="24" 
-       FontWeight="Bold" 
-       Foreground="White"/>
-
-        <Border Width="256" Height="291"
-    Background="#212529"
-    CornerRadius="25"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Top" 
-    Margin="0,98,0,0">
-
-        </Border>
-
-        <TextBlock Text="Log IN" 
-        FontSize="24" 
-        HorizontalAlignment="Center" 
-        VerticalAlignment="Top"
-        FontWeight="Bold" 
-        Foreground="White"
-         Margin="0,113,0,0" />
-
-        <!-- Etykieta i pole dla nazwy użytkownika -->
-        <TextBox Style="{DynamicResource RoundTextBox}" x:Name="UsernameTextBox" 
-     Width="200"
-     HorizontalAlignment="Center" 
-     VerticalAlignment="Top" 
-     Margin="0,171,0,0" Height="23" RenderTransformOrigin="0.501,0.512" />
-        <PasswordBox Style="{DynamicResource RounPasswordBox}"  x:Name="PasswordBox" 
-  Width="200" 
-  HorizontalAlignment="Center" 
-  VerticalAlignment="Top"
-  Margin="0,226,0,0" Height="23"/>
-
-        <TextBlock Text="OR:" 
-HorizontalAlignment="Center" 
-VerticalAlignment="Top" 
-Foreground="White"
-Margin="0,309,0,0" RenderTransformOrigin="0.535,1.107"  />
-        <Button Style="{DynamicResource RoundButton}"  Content="Log IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,279,0,0" VerticalAlignment="Top" Height="25" Width="132" Click="LoginButton_Click"/>
-        <Button Style="{DynamicResource RoundButton}" Content="Sign IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,330,0,0" VerticalAlignment="Top" Height="25" Width="132"  Click="SignInButton_Click"/>
-        <Label Content="Username:" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Password:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,199,0,0" Foreground="White" />
+﻿<Window x:Class="WPF_Pocket_Trainer.Views.LogIN"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Pocket_Trainer.Views"
+        mc:Ignorable="d"
+        Title="Test" Height="300" Width="256"
+         WindowStyle="None"
+         ResizeMode="NoResize"
+         Background="Transparent"
+         AllowsTransparency="True">
+    <Border Background="#1b1d1e" CornerRadius="20" MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="26" />
+                <RowDefinition Height="36"/>
+                <RowDefinition Height="26"/>
+                <RowDefinition Height="36"/>
+                <RowDefinition Height="12"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
 
 
+           <TextBlock Text="Pocket Trainer"
+           VerticalAlignment="Center"
+           HorizontalAlignment="Center"
+           Foreground="White"
+           FontFamily="/Fonts/Poppins-Regular.ttf"/>
+            
+            <Image Source="/Dashboard/Images/x.png" 
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Right"
+                   Height="15"
+                   Width="15"
+                   Margin="0,5,15,0"
+                   MouseDown="CloseButton_Click"
+                   />
 
-    </Grid>
-</Page>
+            <TextBlock Text="Log In"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Foreground="White"
+                FontSize="22"
+                FontWeight="Bold"
+                FontFamily="/Fonts/Poppins-Regular.ttf"
+                Grid.Row="1"/>
+            <Label Content="Username:" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   FontSize="14"
+                   Foreground="White"
+                   FontFamily="/Fonts/Poppins-Regular.ttf"
+                   FontWeight="Bold"
+                   
+                   Grid.Row="2"/>
+            <TextBox  Style="{DynamicResource RoundTextBox}" x:Name="UsernameTextBox" 
+                        Width="200"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                      Grid.Row="3"/>
+            <Label Content="Password:" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
+                   FontSize="14"
+                   Foreground="White"
+                   FontFamily="/Fonts/Poppins-Regular.ttf"
+                   FontWeight="Bold"
+                   Grid.Row="4"/>
+            <PasswordBox Style="{DynamicResource RounPasswordBox}" 
+                         x:Name="PasswordBox" 
+                         Width="200" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center"
+                         Grid.Row="5"/>
+            <Button Style="{DynamicResource RoundButton}"
+                    Content="Log IN" 
+                    Background="#4CAF50" 
+                    Foreground="White" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Height="25" Width="130" 
+                    Click="LoginButton_Click"
+                    Grid.Row="7"/>
+            <Label Content="OR:" 
+                   HorizontalAlignment="Center"
+                    VerticalAlignment="Top" 
+                   Foreground="White"
+                   Grid.Row="8"/>
+            <Button Style="{DynamicResource RoundButton}"
+                    Content="Sign IN" 
+                    Background="#4CAF50" 
+                    Foreground="White" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    Height="25" Width="130" 
+                    Click="LoginButton_Click"
+                    Grid.Row="9"/>
+                  
+
+
+
+
+
+
+
+        </Grid>
+        
+        
+
+
+    </Border>
+</Window>

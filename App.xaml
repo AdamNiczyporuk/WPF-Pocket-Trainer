@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:WPF_Pocket_Trainer"
              xmlns:viewModels="clr-namespace:WPF_Pocket_Trainer.ViewModels"
              xmlns:views="clr-namespace:WPF_Pocket_Trainer.Views"
-             StartupUri="Views/MainWindow.xaml">
+             StartupUri="Views/LogINView.xaml">
     <Application.Resources>
         
         <ResourceDictionary>

@@ -10,6 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dashboard\Images\Kot.png" />
+    <None Remove="Dashboard\Images\x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Figgle" Version="0.5.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
@@ -23,8 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dashboard\Images\" />
     <Folder Include="Dashboard\Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Dashboard\Images\Kot.png" />
+    <Resource Include="Dashboard\Images\x.png" />
   </ItemGroup>
 
 </Project>
