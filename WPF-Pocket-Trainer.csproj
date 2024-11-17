@@ -22,4 +22,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dashboard\Images - Copy\" />
+    <Folder Include="Dashboard\Images\" />
+    <Folder Include="Dashboard\Fonts\" />
+  </ItemGroup>
+
 </Project>
