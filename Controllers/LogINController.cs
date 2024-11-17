@@ -28,13 +28,11 @@ namespace WPF_Pocket_Trainer.Controllers
                 {
                     if(existingUser.Password == password)
                     {
-                        ShowMessage("Login successful!", "Success", "OK", "Information");
                         return true;
                         
                     }
                     else
-                    {
-                       
+                    { 
                         return false;
                         
                     }

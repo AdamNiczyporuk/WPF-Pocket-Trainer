@@ -9,7 +9,9 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        
+>
 
     <Window.DataContext>
         <viewModels:DashbordModel/>
@@ -17,7 +19,7 @@
 
 
 
-    <Border Background="#1b1d1e" CornerRadius="20">
+    <Border Background="#0f1011" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -28,17 +30,18 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Background="#0f1011"/> 
+            
            
            <TextBlock Text="Pocket Trainer"
            VerticalAlignment="Center"
            HorizontalAlignment="Center"
            Foreground="White"
-           FontSize="22"/>
+           FontSize="22"
+           FontFamily="/Fonts/Poppins-Regular.ttf"/>
             
 
 
-            <StackPanel Grid.Row="1" Background="#0f1011">
+            <StackPanel Grid.Row="1" >
                 <RadioButton Content="Trainings" 
                              Height="50" 
                              Foreground="White"
