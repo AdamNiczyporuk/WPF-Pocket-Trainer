@@ -10,32 +10,41 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF_Pocket_Trainer.Controllers;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WPF_Pocket_Trainer.Views
 {
     /// <summary>
-    /// Interaction logic for SignIN.xaml
+    /// Interaction logic for SignINView1.xaml
     /// </summary>
-    public partial class SignIN : Page
+    public partial class SignINView : Window
     {
         private readonly SignINController _SignINController;
-        public SignIN()
+        public SignINView()
         {
             InitializeComponent();
             _SignINController = new SignINController();
         }
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new LogIN());
-        }
 
+            if (e.ChangedButton == MouseButton.Left && e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
+        }
+        public void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+
+        }
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {
-           
+
             if (_SignINController.ValidateData(UsernameTextBox.Text, PasswordBox.Password))
             {
 
@@ -52,7 +61,17 @@ namespace WPF_Pocket_Trainer.Views
             {
                 _SignINController.ShowMessage("User already exists if it's you please login\nor try other username.");
             }
-           
+
         }
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            LogINView logINview = new LogINView();
+            logINview.Left = this.Left;
+            logINview.Top = this.Top;
+            logINview.Show();
+            Window.GetWindow(this).Close();
+
+        }
+
     }
 }

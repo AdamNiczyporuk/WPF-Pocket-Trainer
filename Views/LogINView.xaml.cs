@@ -18,12 +18,12 @@ namespace WPF_Pocket_Trainer.Views
     /// <summary>
     /// Interaction logic for Test.xaml
     /// </summary>
-    public partial class LogIN : Window
+    public partial class LogINView : Window
     {
 
 
         private readonly LogINController _loginController;
-        public LogIN()
+        public LogINView()
         {
             InitializeComponent();
             _loginController = new LogINController();
@@ -52,7 +52,6 @@ namespace WPF_Pocket_Trainer.Views
             // Prosta weryfikacja
             if (_loginController.ValidateData(username, password))
             {
-                _loginController.ShowSuccessMessage();
                 DashboardView dashboardView = new DashboardView();
                 dashboardView.Show();
 
@@ -64,10 +63,15 @@ namespace WPF_Pocket_Trainer.Views
                 _loginController.ShowErrorMessage();
             }
         }
-        //private void SignInButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    NavigationService.Navigate(new SignIN());
-        //}
+        private void SignInButton_Click(object sender, RoutedEventArgs e)
+        {
+            SignINView signINView = new SignINView();
+            signINView.Left = this.Left;
+            signINView.Top = this.Top;
+            signINView.Show();
+            Window.GetWindow(this).Close();
+
+        }
     }
 
      
