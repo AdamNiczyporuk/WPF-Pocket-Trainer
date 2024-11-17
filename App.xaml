@@ -4,8 +4,14 @@
              xmlns:local="clr-namespace:WPF_Pocket_Trainer"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
+        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dashboard/Theme/MenuButtonTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        
 
-       
+
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
         <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
         <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
@@ -102,29 +108,22 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
-        <ControlTemplate x:Key="RoundButton" TargetType="{x:Type ButtonBase}">
-            <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-            </Border>
-            <ControlTemplate.Triggers>
-                <Trigger Property="Button.IsDefaulted" Value="true">
-                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                </Trigger>
-                <Trigger Property="IsMouseOver" Value="true">
-                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="true">
-                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="false">
-                    <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                    <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
+            <Style x:Key="RoundButton" TargetType="Button">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="1" 
+                        CornerRadius="15">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                      VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

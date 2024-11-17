@@ -52,8 +52,8 @@ HorizontalAlignment="Center"
 VerticalAlignment="Top" 
 Foreground="White"
 Margin="0,309,0,0" RenderTransformOrigin="0.535,1.107"  />
-        <Button Template="{DynamicResource RoundButton}"  Content="Log IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,279,0,0" VerticalAlignment="Top" Height="25" Width="132" Click="LoginButton_Click"/>
-        <Button Template="{DynamicResource RoundButton}" Content="Sign IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,330,0,0" VerticalAlignment="Top" Height="25" Width="132"  Click="SignInButton_Click"/>
+        <Button Style="{DynamicResource RoundButton}"  Content="Log IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,279,0,0" VerticalAlignment="Top" Height="25" Width="132" Click="LoginButton_Click"/>
+        <Button Style="{DynamicResource RoundButton}" Content="Sign IN" Background="#4CAF50" Foreground="White" HorizontalAlignment="Center" Margin="0,330,0,0" VerticalAlignment="Top" Height="25" Width="132"  Click="SignInButton_Click"/>
         <Label Content="Username:" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Password:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,199,0,0" Foreground="White" />
 
