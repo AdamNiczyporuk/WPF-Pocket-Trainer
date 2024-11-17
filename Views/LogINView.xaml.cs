@@ -36,6 +36,11 @@ namespace WPF_Pocket_Trainer.Views
             if (_loginController.ValidateData(username, password))
             {
                 _loginController.ShowSuccessMessage();
+                DashboardView dashboardView = new DashboardView();
+                dashboardView.Show();
+
+                // Close the current SignIN page's window
+                Window.GetWindow(this).Close();
             }
             else
             {

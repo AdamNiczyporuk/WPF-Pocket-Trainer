@@ -14,10 +14,10 @@
     <Window.DataContext>
         <viewModels:DashbordModel/>
     </Window.DataContext>
-    
-    
-    
-    <Border Background="#272537" CornerRadius="20">
+
+
+
+    <Border Background="#1b1d1e" CornerRadius="20">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -26,17 +26,19 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
-                <RowDefinition/>
+                <RowDefinition />
             </Grid.RowDefinitions>
-
-            <TextBlock Text="Pocket Trainer"
+            <StackPanel Grid.Row="0" Background="#0f1011"/> 
+           
+           <TextBlock Text="Pocket Trainer"
            VerticalAlignment="Center"
            HorizontalAlignment="Center"
            Foreground="White"
            FontSize="22"/>
+            
 
 
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" Background="#0f1011">
                 <RadioButton Content="Trainings" 
                              Height="50" 
                              Foreground="White"
