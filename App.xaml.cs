@@ -9,6 +9,7 @@ namespace WPF_Pocket_Trainer
     /// </summary>
     public partial class App : Application
     {
+        
     }
 
 }

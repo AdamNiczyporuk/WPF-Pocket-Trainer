@@ -37,12 +37,7 @@ namespace WPF_Pocket_Trainer.Controllers
                 if (existingUser.Password == password)
                 {
                     // Ustawienie danych użytkownika w sesji
-                    UserSession.CurrentUser = new User
-                    {
-                        UserName = existingUser.UserName,
-                        Height = existingUser.Height,
-                        Weight = existingUser.Weight
-                    };
+                    UserSession.CurrentUser = existingUser;
                     return true;
                 }
                 else
