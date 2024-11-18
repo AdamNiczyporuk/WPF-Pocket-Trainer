@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800"
             >
     <Border CornerRadius="10"  Background="#1b1d1e">
-        <Grid Margin="20,5,5,0"> 
+        <Grid Margin="20,5,5,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -21,7 +21,7 @@
                 <RowDefinition />
 
             </Grid.RowDefinitions>
-            
+
 
 
             <TextBlock Text="Trainings"
@@ -50,38 +50,48 @@
 
 
 
-            <StackPanel  Grid.Row="1" 
-                Grid.Column="1" HorizontalAlignment="Center"
-                         VerticalAlignment="Center" Margin="0,0,0,70" >
-            <TextBlock Text="User Information"
-                FontSize="20" FontWeight="Bold" 
-                Margin="0,0,0,10" Foreground="white"
-                           />
+            <Grid Grid.Row="1" 
+                  Grid.Column="1" 
+                  HorizontalAlignment="Center" 
+                  VerticalAlignment="Center" Height="235" Width="214">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
-                <TextBlock Text="User Name: " 
-                FontWeight="Bold" Foreground="white"
-                           />
-                <TextBlock Text="{Binding UserName}" 
-                Margin="0,0,0,10" Foreground="white"
-                         />
+                <Grid.RowDefinitions>
+                    <RowDefinition  />
+                    <RowDefinition />
+                    <RowDefinition  />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
+
+                <TextBlock Text="User Name: "
+                           FontWeight="Bold" 
+                           Foreground="white"
+                           Grid.Row="0" Grid.Column="0" Margin="5"/>
                 <TextBlock Text="Height: "
-                FontWeight="Bold" 
-                Foreground="white"/>
-                <TextBlock Text="{Binding Height}"
-                Margin="0,0,0,10"
-                Foreground="white"/>
-
+                           FontWeight="Bold" 
+                           Foreground="white"
+                           Grid.Row="1" Grid.Column="0" Margin="5"/>
                 <TextBlock Text="Weight: "
-                FontWeight="Bold" 
-                Foreground="white"
-                />
-                <TextBlock Text="{Binding Weight}"
-                Margin="0,0,0,10"
-                Foreground="white"/>
+                           FontWeight="Bold" 
+                           Foreground="white"
+                           Grid.Row="2" Grid.Column="0" Margin="5"/>
 
-                </StackPanel>
+                <!-- Data -->
+                <TextBlock Text="{Binding UserName}" 
+                           Foreground="white" 
+                           Grid.Row="0" Grid.Column="1" Margin="5"/>
+                <TextBlock Text="{Binding Height}" 
+                           Foreground="white" 
+                           Grid.Row="1" Grid.Column="1" Margin="5"/>
+                <TextBlock Text="{Binding Weight}" 
+                           Foreground="white" 
+                           Grid.Row="2" Grid.Column="1" Margin="5"/>
+            </Grid>
         </Grid>
-       
-     </Border>
+
+    </Border>
 </UserControl>
