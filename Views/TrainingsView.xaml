@@ -94,7 +94,7 @@
                     Width="150"
                     Height="150"
                     Background="Transparent"
-                    Foreground="White"
+                    Foreground="Black"
                     FontSize="20"
                     FontWeight="Black"
                     HorizontalAlignment="Center"
@@ -117,7 +117,7 @@
                     Width="150"
                     Height="150"
                     Background="Transparent"
-                    Foreground="White"
+                    Foreground="Black"
                     FontSize="20"
                     FontWeight="Black"
                     HorizontalAlignment="Center"
@@ -140,10 +140,10 @@
                     Width="150"
                     Height="150"
                     Background="Transparent"
-                    Foreground="White"
+                    Foreground="Black"
                     FontSize="20"
                     FontWeight="Black"
-                    
+                    Click="NavigateToExercises"
                                     
                     
                     HorizontalAlignment="Center"
@@ -166,9 +166,9 @@
                     Width="150"
                     Height="150"
                     Background="Transparent"
-                    Foreground="White"
+                    Foreground="Black"
                     FontSize="20"
-                                    FontWeight="Black"
+                    FontWeight="Black"
                     
                     HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"

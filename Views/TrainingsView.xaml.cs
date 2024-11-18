@@ -24,8 +24,38 @@ namespace WPF_Pocket_Trainer.Views
         {
             InitializeComponent();
         }
-        public void NavigateToExercises(TrainingsView tw)
+        private void NavigateToExercises(object sender, RoutedEventArgs e)
         {
+
+            var dashboardView = Application.Current.MainWindow as DashboardView;
+            if (dashboardView != null)
+            {
+                dashboardView.DataContext = new ExercisesView();
+            }
+            else
+            {
+                MessageBox.Show("DashboardView is null");
+            }
+        }
+
+ 
+
+        private void NavigateToTrainingPlans(object sender, RoutedEventArgs e)
+        {
+            // Implement navigation to Training Plans
+            MessageBox.Show("Navigating to Training Plans");
+        }
+
+        private void NavigateToTrainings(object sender, RoutedEventArgs e)
+        {
+            // Implement navigation to Trainings
+            MessageBox.Show("Navigating to Trainings");
+        }
+
+        private void NavigateToStatistics(object sender, RoutedEventArgs e)
+        {
+            // Implement navigation to Statistics
+            MessageBox.Show("Navigating to Statistics");
         }
     }
 }

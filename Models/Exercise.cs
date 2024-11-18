@@ -8,6 +8,7 @@ namespace KCK_Project__Console_Pocket_trainer_.Models
 {
     public class Exercise
     {
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
