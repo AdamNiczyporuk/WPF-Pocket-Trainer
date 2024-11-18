@@ -24,5 +24,8 @@ namespace WPF_Pocket_Trainer.Views
         {
             InitializeComponent();
         }
+        public void NavigateToExercises(TrainingsView tw)
+        {
+        }
     }
 }
