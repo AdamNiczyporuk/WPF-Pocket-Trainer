@@ -24,7 +24,7 @@
 
 
 
-            <TextBlock Text="Trainings"
+            <TextBlock Text="Settings"
            Foreground="White"
            FontSize="24"
            FontWeight="Bold"
@@ -48,7 +48,15 @@
                Grid.Row="1"/>
 
 
-              
+            <TextBlock Text="Your Data"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Foreground="white"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       Margin="0,5,0,0"/>
 
             <Grid Grid.Row="1" 
                   Grid.Column="1" 
@@ -91,14 +99,14 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            Margin="5"/>
-                <TextBlock Text="Training \n Per Week: "
-                               FontWeight="Bold" 
-                               Foreground="white"
-                               Grid.Row="3"
-                               Grid.Column="0"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Margin="5"/> 
+                <TextBlock Text="Trainings&#x0a;Per Week: "
+                                   FontWeight="Bold" 
+                                   Foreground="white"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Margin="5"/> 
 
                 <!-- Data -->
                 <TextBlock Text="{Binding UserName}" 
@@ -110,6 +118,9 @@
                 <TextBlock Text="{Binding Weight}" 
                            Foreground="white" 
                            Grid.Row="2" Grid.Column="1" Margin="5"/>
+                <TextBlock Text="{Binding TrainingPerWeek}" 
+                           Foreground="white" 
+                           Grid.Row="3" Grid.Column="1" Margin="5"/>    
             </Grid>
         </Grid>
 
