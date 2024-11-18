@@ -70,15 +70,35 @@
                 <TextBlock Text="User Name: "
                            FontWeight="Bold" 
                            Foreground="white"
-                           Grid.Row="0" Grid.Column="0" Margin="5"/>
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Margin="5"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
                 <TextBlock Text="Height: "
                            FontWeight="Bold" 
                            Foreground="white"
-                           Grid.Row="1" Grid.Column="0" Margin="5"/>
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           Margin="5"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
                 <TextBlock Text="Weight: "
                            FontWeight="Bold" 
                            Foreground="white"
-                           Grid.Row="2" Grid.Column="0" Margin="5"/>
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="5"/>
+                <TextBlock Text="Training \n Per Week: "
+                               FontWeight="Bold" 
+                               Foreground="white"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="5"/> 
 
                 <!-- Data -->
                 <TextBlock Text="{Binding UserName}" 
