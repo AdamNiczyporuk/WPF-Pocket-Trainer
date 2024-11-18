@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Pocket_Trainer.ViewModels;
 
 namespace WPF_Pocket_Trainer.Views
 {
@@ -20,14 +21,17 @@ namespace WPF_Pocket_Trainer.Views
     /// </summary>
     public partial class EditSettingView : UserControl
     {
+ 
         public EditSettingView()
         {
+
             InitializeComponent();
+     
+
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            // Implementacja logiki zapisywania danych
-            MessageBox.Show("Data saved!");
+       
         }
     }
 }
