@@ -95,7 +95,7 @@
                                  Margin="5"/>
 
                     <!-- Data -->
-                    <TextBox Text="{Binding UserName}" 
+                    <TextBox x:Name="UserNameTextBox" 
                          Foreground="white"
                          Style="{DynamicResource RoundTextBox}"
                          HorizontalAlignment="Left"
@@ -137,8 +137,7 @@
           Width="120" Height="40" 
           HorizontalAlignment="Center" 
           VerticalAlignment="Bottom" 
-          Click="SaveButton_Click"
-          Content="Save"
+         Content="Save"
           Grid.Row="1"
           Grid.Column="1"
           Style="{DynamicResource RoundButton}"

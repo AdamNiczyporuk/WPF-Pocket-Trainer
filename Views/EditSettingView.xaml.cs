@@ -27,13 +27,14 @@ namespace WPF_Pocket_Trainer.Views
         {
 
             InitializeComponent();
-            this.DataContext = UserSession.CurrentUser;
+            //this.DataContext = UserSession.CurrentUser;
 
 
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            //UserSession.CurrentUser.UserName = UserNameTextBox.Text;
+
         }
     }
 }

@@ -12,16 +12,16 @@ namespace WPF_Pocket_Trainer.ViewModels
 {
      class SettingsViewModel : ObservableObject
     {
-        public ICommand ChangeToEditSettingsViewCommand { get; }
+        public ICommand ChangeToTrainingsViewCommand { get; }
 
         public SettingsViewModel()
         {
-            ChangeToEditSettingsViewCommand = new RelayCommand(ChangeToEditSettings);
+            ChangeToTrainingsViewCommand = new RelayCommand(ChangeToTrainingsView);
         }
 
-        private void ChangeToEditSettings()
+        private void ChangeToTrainingsView()
         {
-            Messenger.Default.Send(new ViewChangeMessage(new EditSettingViewModel()));
+            Messenger.Default.Send(new ViewChangeMessage(new TrainignsViewModel()));
         }
     }
 }
