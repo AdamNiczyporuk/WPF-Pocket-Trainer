@@ -42,7 +42,7 @@ namespace WPF_Pocket_Trainer.Views
         }
         public void ChangeView(UserControl newView)
         {
-            MessageBox.Show("Navigating to Exercises");
+            
             MainContent.Content = newView;
         }
     }
