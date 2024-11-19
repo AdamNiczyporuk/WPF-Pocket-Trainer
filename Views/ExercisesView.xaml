@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="800">
     <UserControl.Resources>
         <!-- Styl dla ScrollViewer -->
         <Style TargetType="{x:Type ScrollViewer}">
@@ -15,20 +15,42 @@
                     <!-- Tło czarne -->
                     <Setter Property="Foreground" Value="#4c4f50"/>
                     <!-- Uchwyt szary -->
+                    <Setter Property="BorderBrush" Value="#1b1d1e"/>
+                    <!-- Obramowanie czarne -->
                     <Setter Property="Width" Value="10"/>
                     <!-- Szerokość paska -->
                 </Style>
             </Style.Resources>
         </Style>
+
+        <!-- Styl dla przycisku -->
+        <Style TargetType="Button" x:Key="DarkButton">
+            <Setter Property="Background" Value="#2c2f30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="#4c4f50"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <!-- Efekt po najechaniu -->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#4c4f50"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
+
     <Border CornerRadius="10" Background="#1b1d1e">
         <StackPanel Margin="20">
             <!-- Informacja o wyszukiwaniu -->
             <TextBlock Text="Search for an exercise:"
-                           Foreground="White"
-                           VerticalAlignment="Center"
-                           Margin="0,0,10,0"
-                           FontSize="14" />
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,0"
+                       FontSize="14" />
             <!-- Pole wyszukiwania -->
             <TextBox x:Name="SearchTextBox"
                      Width="300"
@@ -40,12 +62,11 @@
                      Background="#2c2f30"
                      Foreground="White"
                      BorderBrush="#4c4f50"
-                     BorderThickness="1"
-                      />
+                     BorderThickness="1" />
             <TextBlock Text="Found exercises:"
-                           Foreground="White"
-                           Margin="0,0,0,0"
-                           FontSize="14" Height="25" />
+                       Foreground="White"
+                       Margin="0,0,0,0"
+                       FontSize="14" Height="25" />
             <!-- Lista ćwiczeń -->
             <ListBox x:Name="ExercisesListBox"
                      Background="#2c2f30"
@@ -53,9 +74,13 @@
                      HorizontalAlignment="Stretch"
                      BorderThickness="0"
                      Padding="10"
-                     ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="328" />
+                     ScrollViewer.VerticalScrollBarVisibility="Auto" Height="328" />
+
+            <!-- Przycisk na dole -->
+            <Button Content="Show Exercise Details"
+                    Style="{StaticResource DarkButton}"
+                   
+                    HorizontalAlignment="Left"/>
         </StackPanel>
     </Border>
 </UserControl>
-
-
