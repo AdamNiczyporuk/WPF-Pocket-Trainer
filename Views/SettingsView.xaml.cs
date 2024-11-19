@@ -14,7 +14,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using KCK_Project__Console_Pocket_trainer_.Models;
 using WPF_Pocket_Trainer.Models;
+using WPF_Pocket_Trainer.ViewModels;
 using WpfAnimatedGif;
+using WPF_Pocket_Trainer.Dashboard.Core;
+using WPF_Pocket_Trainer.Views;
+
 
 
 namespace WPF_Pocket_Trainer.Views
@@ -24,13 +28,14 @@ namespace WPF_Pocket_Trainer.Views
     /// </summary>
     public partial class SettingsView : UserControl
     {
+        
         public SettingsView()
         {
-            this.DataContext = UserSession.CurrentUser;
-
+            
             InitializeComponent();
+            this.DataContext = UserSession.CurrentUser;
             LoadGif();
-            UpdateButtonState();
+            //UpdateButtonState();
 
 
 
@@ -47,30 +52,20 @@ namespace WPF_Pocket_Trainer.Views
             ImageBehavior.SetAnimatedSource(HeavyGym, gifHeavy);
             ImageBehavior.SetRepeatBehavior(HeavyGym, System.Windows.Media.Animation.RepeatBehavior.Forever); 
         }
-        private void UpdateButtonState()
-        {
-            if (UserSession.CurrentUser != null)
-            {
-                ActionButton.Content = "Update Data";
-            }
-            else
-            {
-                ActionButton.Content = "Add Data";
-            }
-        }
+        //private void UpdateButtonState()
+        //{
+        //    if (UserSession.CurrentUser != null)
+        //    {
+        //        ActionButton.Content = "Update Data";
+        //    }
+        //    else
+        //    {
+        //        ActionButton.Content = "Add Data";
+        //    }
+        //}
         private void ActionButton_Click(object sender, RoutedEventArgs e)
         {
-            // Obsługa kliknięcia przycisku
-            if (UserSession.CurrentUser != null)
-            {
-                // Update danych użytkownika
-                MessageBox.Show("Updating data...");
-            }
-            else
-            {
-                // Dodawanie danych użytkownika
-                MessageBox.Show("Adding data...");
-            }
+            
         }
 
 
