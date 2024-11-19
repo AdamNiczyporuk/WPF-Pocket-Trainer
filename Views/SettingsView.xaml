@@ -145,7 +145,7 @@
                 Width="120" Height="40" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Bottom" 
-                Command="{Binding EditSettingsViewCommand}"
+                Command="{Binding ChangeToEditSettingsViewCommand}"
                 Content="Add Data"
                 Grid.Row="1"
                 Grid.Column="1"

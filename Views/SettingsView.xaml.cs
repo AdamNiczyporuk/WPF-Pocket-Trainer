@@ -52,21 +52,19 @@ namespace WPF_Pocket_Trainer.Views
             ImageBehavior.SetAnimatedSource(HeavyGym, gifHeavy);
             ImageBehavior.SetRepeatBehavior(HeavyGym, System.Windows.Media.Animation.RepeatBehavior.Forever); 
         }
-        //private void UpdateButtonState()
-        //{
-        //    if (UserSession.CurrentUser != null)
-        //    {
-        //        ActionButton.Content = "Update Data";
-        //    }
-        //    else
-        //    {
-        //        ActionButton.Content = "Add Data";
-        //    }
-        //}
-        private void ActionButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateButtonState()
         {
-            
+            if (UserSession.CurrentUser != null)
+            {
+                ActionButton.Content = "Update Data";
+            }
+            else
+            {
+                ActionButton.Content = "Add Data";
+            }
         }
+
+
 
 
 

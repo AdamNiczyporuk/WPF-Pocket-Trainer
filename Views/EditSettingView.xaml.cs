@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Pocket_Trainer.Models;
 using WPF_Pocket_Trainer.ViewModels;
 
 namespace WPF_Pocket_Trainer.Views
@@ -26,12 +27,13 @@ namespace WPF_Pocket_Trainer.Views
         {
 
             InitializeComponent();
-     
+            this.DataContext = UserSession.CurrentUser;
+
 
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-       
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using WPF_Pocket_Trainer.Dashboard.Core;
+using WPF_Pocket_Trainer.Services;
 using WPF_Pocket_Trainer.Views;
 namespace WPF_Pocket_Trainer.ViewModels
 {
@@ -13,8 +15,8 @@ namespace WPF_Pocket_Trainer.ViewModels
     {
         public RelayCommand TrainingsViewCommand { get; set; }
         public RelayCommand SettingsViewCommand { get; set; }
-
         public RelayCommand LogOutCommand { get; set; }
+
         public TrainignsViewModel TrainignsVM { get; set; }
         public SettingsViewModel SettingVM { get; set; }
 
@@ -49,7 +51,12 @@ namespace WPF_Pocket_Trainer.ViewModels
             });
             LogOutCommand = new RelayCommand(ExecuteLogOut);
 
+            Messenger.Default.Register<ViewChangeMessage>(this, message =>
+            {
+                CurrentView = message.ViewModel;
+            });
         }
+       
 
         private void ExecuteLogOut(object obj)
         {
