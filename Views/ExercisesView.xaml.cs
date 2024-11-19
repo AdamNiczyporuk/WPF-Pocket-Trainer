@@ -1,4 +1,5 @@
 ﻿using KCK_Project__Console_Pocket_trainer_.Data;
+using KCK_Project__Console_Pocket_trainer_.Models;
 using KCK_Project__Console_Pocket_trainer_.Repositories;
 using System;
 using System.Collections.Generic;
@@ -25,31 +26,30 @@ namespace WPF_Pocket_Trainer.Views
     {
         private ApplicationDbContext _context;
         private ExerciseRepository _exerciseRepository;
+        private List<Exercise> _selectedExercise;
         public ExercisesView()
         {
             InitializeComponent();
             _context = new ApplicationDbContext();
             _exerciseRepository = new ExerciseRepository(_context);
-            LoadMuscleGroups();
+            _selectedExercise = LoadExercises();
+
         }
-        private void LoadMuscleGroups()
+        private List<Exercise> LoadExercises()
         {
-            var muscleGroups = ExerciseMuscleList.exerciseMuscles;
-            MusclesListBox.ItemsSource = muscleGroups;
+            var exercises = _exerciseRepository.GetAllExercises();
+            ExercisesListBox.ItemsSource = exercises;
+            return exercises;
         }
-        private void MusclesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (MusclesListBox.SelectedItem != null)
-            {
-                string selectedMuscle = MusclesListBox.SelectedItem.ToString();
-                LoadExercises();
-            }
-        }
-        private void LoadExercises()
-        {
-            var selectedMuscle = MusclesListBox.SelectedItem.ToString();
-            var exercises = _exerciseRepository.GetExercisesByMuscle(selectedMuscle);
-           ExercisesListBox.ItemsSource = exercises;
+            string searchText = SearchTextBox.Text.ToLower();
+
+            // Filtracja ćwiczeń
+            var exercises = _exerciseRepository.GetExercisesByName(searchText.ToLower());
+
+            // Odświeżenie listy ćwiczeń
+            ExercisesListBox.ItemsSource = exercises;
         }
     }
 }

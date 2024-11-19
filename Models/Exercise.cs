@@ -20,5 +20,9 @@ namespace KCK_Project__Console_Pocket_trainer_.Models
         public ICollection<ExerciseToTrainingPlan> TrainingPlans { get; set; }
         public ICollection<ExerciseDone> ExercisesDone { get; set; }
 
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
