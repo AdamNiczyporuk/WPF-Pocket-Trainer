@@ -27,14 +27,9 @@ namespace WPF_Pocket_Trainer.Views
         private void NavigateToExercises(object sender, RoutedEventArgs e)
         {
 
-            var dashboardView = Application.Current.MainWindow as DashboardView;
-            if (dashboardView != null)
+            if (Window.GetWindow(this) is DashboardView mainWindow)
             {
-                dashboardView.DataContext = new ExercisesView();
-            }
-            else
-            {
-                MessageBox.Show("DashboardView is null");
+                mainWindow.ChangeView(new ExercisesView());
             }
         }
 
