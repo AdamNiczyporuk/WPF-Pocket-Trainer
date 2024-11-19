@@ -45,5 +45,12 @@ namespace WPF_Pocket_Trainer.Views
             
             MainContent.Content = newView;
         }
+        private void TrainingsButtonClick(object sender, RoutedEventArgs e) {
+            ChangeView(new TrainingsView());
+        }
+        private void SettingsButtonClick(object sender, RoutedEventArgs e)
+        {
+            ChangeView(new SettingsView());
+        }
     }
 }
