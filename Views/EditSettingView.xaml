@@ -102,7 +102,8 @@
                          VerticalAlignment="Top"
                          Width="100" Height="25" 
                          Margin="15,20,0,0" 
-                          Grid.Column="1"/>
+                          Grid.Column="1"
+                          TextChanged="UserNameTextBox_TextChanged"/>
                     <TextBox Text="{Binding Height}"
                          Style="{DynamicResource RoundTextBox}"
                          Foreground="Black"
@@ -111,7 +112,8 @@
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Width="100" Height="25" 
-                         Margin="15,20,0,0" />
+                         Margin="15,20,0,0"
+                          TextChanged="HeightTextBox_TextChanged"   />
                     <TextBox Text="{Binding Weight}" 
                           Style="{DynamicResource RoundTextBox}"
                          Foreground="Black"
@@ -120,7 +122,8 @@
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Width="100" Height="25" 
-                         Margin="15,20,0,0" />
+                         Margin="15,20,0,0" 
+                         TextChanged="WeightTextBox_TextChanged"/>
                     <TextBox Text="{Binding TrainingsPerWeek}"
                           Style="{DynamicResource RoundTextBox}"
                          Foreground="Black"
@@ -129,7 +132,8 @@
                           HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Width="100" Height="25" 
-                         Margin="15,20,0,0"/>
+                         Margin="15,20,0,0"
+                         TextChanged="TrainingsPerWeekTextBox_TextChanged"/>
                 </Grid>
             </Border>
 

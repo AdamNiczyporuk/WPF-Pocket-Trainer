@@ -1,4 +1,6 @@
 ﻿using KCK_Project__Console_Pocket_trainer_.Data;
+using KCK_Project__Console_Pocket_trainer_.Models;
+using KCK_Project__Console_Pocket_trainer_.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,23 +27,36 @@ namespace WPF_Pocket_Trainer.Views
     public partial class EditSettingView : UserControl
     {
         private ApplicationDbContext _context;
+        private UserRepository _userRepository;
+        private string _userName;
+        private float _height;
+        private float _weight;
+        private int _trainingsPerWeek;
         public EditSettingView()
         {
 
             InitializeComponent();
             this.DataContext = UserSession.CurrentUser;
-            
+             _context = new ApplicationDbContext();
+            _userRepository = new UserRepository(_context);
+
+
 
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            UserSession.CurrentUser.UserName = _userName;
+            UserSession.CurrentUser.Height = _height;
+            UserSession.CurrentUser.Weight = _weight;
+            UserSession.CurrentUser.TrainingsPerWeek = _trainingsPerWeek;
             SaveData();
+            NavigateToSettings( sender,e);
 
         }
         private void SaveData()
         {
             // Przykład: Aktualizacja danych użytkownika
-            var user = _context.Users.FirstOrDefault(u => u.Id == UserSession.CurrentUser.Id);
+            User user = _userRepository.GetUserById(UserSession.CurrentUser.Id);
             if (user != null)
             {
                 user.UserName = UserSession.CurrentUser.UserName;
@@ -58,6 +73,34 @@ namespace WPF_Pocket_Trainer.Views
             if (Window.GetWindow(this) is DashboardView mainWindow)
             {
                 mainWindow.ChangeView(new SettingsView());
+            }
+        }
+        private void UserNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            _userName = ((TextBox)sender).Text;
+        }
+
+        private void HeightTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (float.TryParse(((TextBox)sender).Text, out float height))
+            {
+                _height = height;
+            }
+        }
+
+        private void WeightTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (float.TryParse(((TextBox)sender).Text, out float weight))
+            {
+                _weight = weight;
+            }
+        }
+
+        private void TrainingsPerWeekTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (int.TryParse(((TextBox)sender).Text, out int trainingsPerWeek))
+            {
+                _trainingsPerWeek = trainingsPerWeek;
             }
         }
     }
