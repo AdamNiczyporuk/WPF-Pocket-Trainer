@@ -21,6 +21,10 @@
             <DataTemplate DataType="{x:Type viewModels:EditSettingViewModel}">
                 <views:EditSettingView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:DietViewModel}">
+                <views:DietView/>
+            </DataTemplate>
+
 
 
 
