@@ -107,7 +107,7 @@
                                    Margin="5"/>
 
                     <!-- Data -->
-                    <TextBlock Text="{Binding UserSession.CurrentUser.UserName}" 
+                    <TextBlock Text="{Binding UserName}" 
                            Foreground="white" 
                            Grid.Row="0" Grid.Column="1"
                            HorizontalAlignment="Center"

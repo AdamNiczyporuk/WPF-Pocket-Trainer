@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KCK_Project__Console_Pocket_trainer_.Data;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,19 +24,41 @@ namespace WPF_Pocket_Trainer.Views
     /// </summary>
     public partial class EditSettingView : UserControl
     {
- 
+        private ApplicationDbContext _context;
         public EditSettingView()
         {
 
             InitializeComponent();
             this.DataContext = UserSession.CurrentUser;
-
+            
 
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            //UserSession.CurrentUser.UserName = UserNameTextBox.Text;
+            SaveData();
 
+        }
+        private void SaveData()
+        {
+            // Przykład: Aktualizacja danych użytkownika
+            var user = _context.Users.FirstOrDefault(u => u.Id == UserSession.CurrentUser.Id);
+            if (user != null)
+            {
+                user.UserName = UserSession.CurrentUser.UserName;
+                user.Height = UserSession.CurrentUser.Height;
+                user.Weight = UserSession.CurrentUser.Weight;
+                user.TrainingsPerWeek = UserSession.CurrentUser.TrainingsPerWeek;
+
+                _context.SaveChanges(); // Zapisz zmiany w bazie danych
+            }
+        }
+        private void NavigateToSettings(object sender, RoutedEventArgs e)
+        {
+
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new SettingsView());
+            }
         }
     }
 }
