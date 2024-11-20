@@ -8,9 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
             >
-    <UserControl.DataContext>
-        <viewModels:SettingsViewModel />
-    </UserControl.DataContext>
 
 
     <Border CornerRadius="10"  Background="#1b1d1e">
@@ -145,7 +142,7 @@
                 Width="120" Height="40" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Bottom" 
-                Command="{Binding ChangeToTrainingsViewCommand}"
+               Click="NavigateToEditSettings"
                 Content="Add Data"
                 Grid.Row="1"
                 Grid.Column="1"

@@ -33,7 +33,7 @@ namespace WPF_Pocket_Trainer.Views
         {
             
             InitializeComponent();
-            //this.DataContext = UserSession.CurrentUser;
+            this.DataContext = UserSession.CurrentUser;
             LoadGif();
             UpdateButtonState();
 
@@ -63,6 +63,15 @@ namespace WPF_Pocket_Trainer.Views
                 ActionButton.Content = "Add Data";
             }
         }
+        private void NavigateToEditSettings(object sender, RoutedEventArgs e)
+        {
+
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new EditSettingView());
+            }
+        }
+
 
 
 

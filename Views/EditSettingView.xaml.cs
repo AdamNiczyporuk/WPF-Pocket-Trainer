@@ -27,7 +27,7 @@ namespace WPF_Pocket_Trainer.Views
         {
 
             InitializeComponent();
-            //this.DataContext = UserSession.CurrentUser;
+            this.DataContext = UserSession.CurrentUser;
 
 
         }
