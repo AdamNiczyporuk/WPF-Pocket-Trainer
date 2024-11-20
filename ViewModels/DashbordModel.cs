@@ -15,10 +15,12 @@ namespace WPF_Pocket_Trainer.ViewModels
     {
         public RelayCommand TrainingsViewCommand { get; set; }
         public RelayCommand SettingsViewCommand { get; set; }
+        public RelayCommand DietViewCommand { get; set; }
         public RelayCommand LogOutCommand { get; set; }
 
         public TrainignsViewModel TrainignsVM { get; set; }
         public SettingsViewModel SettingVM { get; set; }
+        public DietViewModel DietVM { get; set; }
 
         private object _currentView;
 
@@ -38,6 +40,7 @@ namespace WPF_Pocket_Trainer.ViewModels
         {
             TrainignsVM = new TrainignsViewModel();
             SettingVM = new SettingsViewModel();
+            DietVM = new DietViewModel();
             CurrentView = TrainignsVM;
 
             TrainingsViewCommand = new RelayCommand(o =>
@@ -49,7 +52,12 @@ namespace WPF_Pocket_Trainer.ViewModels
             {
                 CurrentView = SettingVM;
             });
+            DietViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = DietVM;
+            });
             LogOutCommand = new RelayCommand(ExecuteLogOut);
+            
 
             Messenger.Default.Register<ViewChangeMessage>(this, message =>
             {

@@ -51,6 +51,10 @@ namespace WPF_Pocket_Trainer.Views
         private void SettingsButtonClick(object sender, RoutedEventArgs e)
         {
             ChangeView(new SettingsView());
+        } 
+        private void DietButtonClick(object sender, RoutedEventArgs e)
+        {
+            ChangeView(new DietView());
         }
     }
 }

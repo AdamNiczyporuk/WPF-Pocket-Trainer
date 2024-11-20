@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Pocket_Trainer.ViewModels
 {
-    internal class DietViewModel
+    class DietViewModel
     {
     }
 }

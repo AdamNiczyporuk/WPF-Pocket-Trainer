@@ -67,10 +67,11 @@
                     </RadioButton>
                     <RadioButton Content="Diet" 
                      Height="50" 
-                    
                      Foreground="White"
                      FontSize="14"
-                     Style="{StaticResource MenuButtonTheme}"/>
+                     Style="{StaticResource MenuButtonTheme}"
+                     Command="{Binding DietViewCommand}"
+                     Click="DietButtonClick"/>
                     <RadioButton Content="Settings" 
                      Height="50" 
                      Foreground="White"

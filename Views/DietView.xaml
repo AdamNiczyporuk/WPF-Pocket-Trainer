@@ -4,9 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WPF_Pocket_Trainer.Views"
+             xmlns:viewModels="clr-namespace:WPF_Pocket_Trainer.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+
+    <Border CornerRadius="10"  Background="#1b1d1e">
+        <TextBlock x:Name="WarningTextBlock"
+                    Text="Proszę uzupełnić dane W Settings"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="20"
+                   Foreground="White"
+                   FontWeight="Bold" 
+                    Visibility="Collapsed" />
+    </Border>
+
 </UserControl>
