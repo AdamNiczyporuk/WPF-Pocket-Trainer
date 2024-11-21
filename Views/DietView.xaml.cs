@@ -1,5 +1,7 @@
-﻿using CHATAPI;
+﻿using Azure;
+using CHATAPI;
 using KCK_Project__Console_Pocket_trainer_.Data;
+using KCK_Project__Console_Pocket_trainer_.Interfaces;
 using KCK_Project__Console_Pocket_trainer_.Models;
 using KCK_Project__Console_Pocket_trainer_.Repositories;
 using System;
@@ -11,6 +13,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -25,24 +28,23 @@ namespace WPF_Pocket_Trainer.Views
     /// <summary>
     /// Interaction logic for DietView.xaml
     /// </summary>
-    public partial class DietView : UserControl
+    public partial class DietView : System.Windows.Controls.UserControl
     {
         
         private User _currentUser;
         private ApplicationDbContext _context;
         private UserRepository _userRepository;
         private DietRepository _dietRepository;
-        private string diet;
-        
+
         public DietView()
         {
             InitializeComponent();
             _context = new ApplicationDbContext();
             _userRepository = new UserRepository(_context);
             _dietRepository = new DietRepository(_context);
-            CheckUserData();
+            CheckUserDataAsync();
         }
-        private void CheckUserData()
+        private async Task CheckUserDataAsync()
         {
             _currentUser = _userRepository.GetUserById(UserSession.CurrentUser.Id);
 
@@ -54,14 +56,35 @@ namespace WPF_Pocket_Trainer.Views
             }
             else
             {
-                //if (_dietRepository.GetUserDiets(UserSession.CurrentUser.Id) == null)
-                //{
-                    
-                //}
-                diet = GenerateDiet(_dietRepository).Result;
-               
+                if (_dietRepository.GetUserDiets(UserSession.CurrentUser.Id).Count() ==0)
+                {
+                    GenerateDiet(_dietRepository);
+                }
+                else if (_dietRepository.GetUserDiets(UserSession.CurrentUser.Id).Any())
+                {
+                    var existingDiet = _dietRepository.GetUserDiets(UserSession.CurrentUser.Id);
+                    var dietParts = SplitDietIntoTwoColumns(existingDiet[0].Text);
+                    FormatTextBlock(DietTextBlock1, dietParts.Item1);
+                    FormatTextBlock(DietTextBlock2, dietParts.Item2);
+                }
+                
+                
 
             }
+        }
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Diet diet = new Diet()
+            {
+                Text = DietTextBlock1.Text + DietTextBlock2.Text,
+                UserId = UserSession.CurrentUser.Id
+            };
+            _dietRepository.Add(diet);
+
+        }
+        private void GenerateButton_Click(object sender, RoutedEventArgs e) 
+        {
+            
         }
 
         private void NavigateToSettings(object sender, RoutedEventArgs e)
@@ -72,7 +95,7 @@ namespace WPF_Pocket_Trainer.Views
                 mainWindow.ChangeView(new SettingsView());
             }
         }
-        private static  Task<string>  GenerateDiet(DietRepository dietRepository)
+        private  async void GenerateDiet(DietRepository dietRepository)
         {
 
             ChatGPT_diet.SetUpSetting();
@@ -80,7 +103,62 @@ namespace WPF_Pocket_Trainer.Views
 
             var responseTask = ChatGPT_diet.SendRequestToChatGPT(prompt);
 
-            return responseTask;
+            var  response = await responseTask;
+
+
+           
+            var dietParts = SplitDietIntoTwoColumns(response);
+            FormatTextBlock(DietTextBlock1, dietParts.Item1);
+            FormatTextBlock(DietTextBlock2, dietParts.Item2);
+
+
+           
+        }
+        private Tuple<string, string> SplitDietIntoTwoColumns(string diet)
+        {
+            var dietLines = diet.Split(new[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            var firstColumn = new StringBuilder();
+            var secondColumn = new StringBuilder();
+            bool isSecondColumn = false;
+
+            foreach (var line in dietLines)
+            {
+                if (line.Contains("5"))
+                {
+                    isSecondColumn = true;
+                }
+
+                if (isSecondColumn)
+                {
+                    secondColumn.AppendLine(line);
+                }
+                else
+                {
+                    firstColumn.AppendLine(line);
+                }
+            }
+
+            return new Tuple<string, string>(firstColumn.ToString(), secondColumn.ToString());
+        }
+        private void FormatTextBlock(TextBlock textBlock, string text)
+        {
+            textBlock.Inlines.Clear();
+            var lines = text.Split(new[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("**Day"))
+                {
+                    var run = new Run(line) { FontWeight = FontWeights.Bold, Foreground = Brushes.Yellow };
+                    textBlock.Inlines.Add(run);
+                }
+                else
+                {
+                    var run = new Run(line) { Foreground = Brushes.White };
+                    textBlock.Inlines.Add(run);
+                }
+                textBlock.Inlines.Add(new LineBreak());
+            }
         }
 
     }
