@@ -45,7 +45,6 @@ namespace WPF_Pocket_Trainer.Views
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            UserSession.CurrentUser.UserName = _userName;
             UserSession.CurrentUser.Height = _height;
             UserSession.CurrentUser.Weight = _weight;
             UserSession.CurrentUser.TrainingsPerWeek = _trainingsPerWeek;
@@ -59,7 +58,7 @@ namespace WPF_Pocket_Trainer.Views
             User user = _userRepository.GetUserById(UserSession.CurrentUser.Id);
             if (user != null)
             {
-                user.UserName = UserSession.CurrentUser.UserName;
+
                 user.Height = UserSession.CurrentUser.Height;
                 user.Weight = UserSession.CurrentUser.Weight;
                 user.TrainingsPerWeek = UserSession.CurrentUser.TrainingsPerWeek;

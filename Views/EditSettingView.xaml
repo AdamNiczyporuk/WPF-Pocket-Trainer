@@ -95,15 +95,14 @@
                                  Margin="5"/>
 
                     <!-- Data -->
-                    <TextBox Text="{Binding UserName}"
-                         Foreground="Black"
-                         Style="{DynamicResource RoundTextBox}"
+                    <TextBlock Text="{Binding UserName}"
+                         Foreground="White" 
                          HorizontalAlignment="Left"
                          VerticalAlignment="Top"
                          Width="100" Height="25" 
                          Margin="15,20,0,0" 
                           Grid.Column="1"
-                          TextChanged="UserNameTextBox_TextChanged"/>
+                          />
                     <TextBox Text="{Binding Height}"
                          Style="{DynamicResource RoundTextBox}"
                          Foreground="Black"

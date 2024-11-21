@@ -20,7 +20,7 @@ namespace CHATAPI
         {
             var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            .AddJsonFile("D:\\AAAAAAAANAUKA\\AAStudia\\SEMESTR5\\KCK\\WPF-Pocket-Trainer\\appsettings.json", optional: false, reloadOnChange: true);
 
             IConfiguration configuration = builder.Build();
             

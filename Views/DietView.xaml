@@ -9,14 +9,58 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Border CornerRadius="10"  Background="#1b1d1e">
-        <TextBlock x:Name="WarningTextBlock"
-                    Text="Proszę uzupełnić dane W Settings"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   FontSize="20"
-                   Foreground="White"
-                   FontWeight="Bold" 
-                    Visibility="Collapsed" />
+        <Grid Margin="20,5,5,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="500" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="350" />
+                <RowDefinition />
+
+            </Grid.RowDefinitions>
+
+            <Border x:Name="WarningBorder" Grid.Row="1" Grid.Column="1" CornerRadius="10" Background="#313334" Margin="175,100,175,100" Visibility="Collapsed">
+                <Grid Grid.Row="1" 
+                      Grid.Column="1" 
+                      HorizontalAlignment="Center" 
+                      VerticalAlignment="Center" Height="235" Width="214">
+
+                    <TextBlock x:Name="WarningTextBlock"
+                        TextAlignment="Center"
+                        Text="Proszę uzupełnić dane&#xA;w Settings"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontSize="15"
+                       Foreground="White"
+                       FontWeight="Bold" Margin="-7,73,0,0" 
+                       Visibility="Collapsed"
+                        
+                    />
+                    <Button x:Name="WarningButton"
+                            Width="120" Height="40" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Top" 
+                            Content="Go to Settings"
+                        Click="NavigateToSettings"
+                            Style="{DynamicResource RoundButton}"
+                            Background="#4CAF50" 
+                            Foreground="White"
+                             FontWeight="Bold" Margin="0,125,0,0"
+                        Visibility="Collapsed"
+                        />
+                </Grid>
+            </Border>
+            <Border  Grid.Row="1" Grid.Column="1" CornerRadius="10" Background="#313334" Margin="0" >
+                <TextBlock />
+
+
+            </Border>
+
+        </Grid>
     </Border>
 
 </UserControl>

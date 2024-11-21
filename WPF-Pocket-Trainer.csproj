@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="appsettings.json" />
     <None Remove="Dashboard\Images\deadlift.png" />
     <None Remove="Dashboard\Images\fit.png" />
     <None Remove="Dashboard\Images\handwithdumbbell.png" />
@@ -44,6 +45,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="appsettings.json" />
     <Resource Include="Dashboard\Images\deadlift.png" />
     <Resource Include="Dashboard\Images\handwithdumbbell.png" />
     <Resource Include="Dashboard\Images\HevyWieght.gif">
