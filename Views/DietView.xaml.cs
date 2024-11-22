@@ -59,11 +59,15 @@ namespace WPF_Pocket_Trainer.Views
                 if (_dietRepository.GetUserDiets(UserSession.CurrentUser.Id).Count() ==0)
                 {
                     DataViewBorder.Visibility = Visibility.Visible;
-
+                    GenerateDietVisibility.Visibility = Visibility.Visible;
+                    SaveButtonVisibility.Visibility = Visibility.Visible;
                     GenerateDiet(_dietRepository);
                 }
                 else if (_dietRepository.GetUserDiets(UserSession.CurrentUser.Id).Any())
                 {
+                    DataViewBorder.Visibility = Visibility.Visible;
+                    GenerateDietVisibility.Visibility = Visibility.Visible;
+                    SaveButtonVisibility.Visibility = Visibility.Visible;
                     var existingDiet = _dietRepository.GetUserDiets(UserSession.CurrentUser.Id);
                     var dietParts = SplitDietIntoTwoColumns(existingDiet[0].Text);
                     FormatTextBlock(DietTextBlock1, dietParts.Item1);

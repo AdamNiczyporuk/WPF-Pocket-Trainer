@@ -72,7 +72,7 @@
                 Margin="150,0,0,-20"
                 Visibility="Collapsed"/>
             <Button 
-                x:Name="GenerateDiet"
+                x:Name="GenerateDietVisibility"
                        Width="120" Height="40" 
                           HorizontalAlignment="Center" 
                           VerticalAlignment="Bottom" 
