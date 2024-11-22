@@ -45,11 +45,40 @@ namespace WPF_Pocket_Trainer.Views
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            UserSession.CurrentUser.Height = _height;
-            UserSession.CurrentUser.Weight = _weight;
-            UserSession.CurrentUser.TrainingsPerWeek = _trainingsPerWeek;
-            SaveData();
-            NavigateToSettings( sender,e);
+            bool isValid = true;
+            if (_height >= 50 && _height<= 300)
+            {
+                UserSession.CurrentUser.Height = _height;
+            }
+            else
+            {
+                isValid = false;
+                MessageBox.Show("Height must be between 50 and 300 cm");
+            }
+            if (_weight >= 30 && _weight <= 500)
+            {
+                UserSession.CurrentUser.Weight = _weight;
+            }
+            else
+            {
+                isValid = false;
+                MessageBox.Show("Height must be between 50 and 300 cm");
+            }
+            if( _trainingsPerWeek >= 0 && _trainingsPerWeek <= 15)
+            {
+                UserSession.CurrentUser.TrainingsPerWeek = _trainingsPerWeek;
+            }
+            else
+            {
+                isValid = false;
+                MessageBox.Show("Trainings per week must be between 0 and 15");
+            }
+
+            if (isValid)
+            {
+                SaveData();
+                MessageBox.Show("Data Update");
+            }
 
         }
         private void SaveData()
@@ -102,5 +131,6 @@ namespace WPF_Pocket_Trainer.Views
                 _trainingsPerWeek = trainingsPerWeek;
             }
         }
+
     }
 }

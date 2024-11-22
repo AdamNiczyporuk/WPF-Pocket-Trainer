@@ -112,7 +112,8 @@
                            Grid.Row="0" Grid.Column="1"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           Margin="0,0,50,0"/>
+                           Margin="0,0,50,0"
+                               FontWeight="Bold"/>
                     <TextBlock Text="{Binding Height}" 
                            Foreground="white" 
                            Grid.Row="1"

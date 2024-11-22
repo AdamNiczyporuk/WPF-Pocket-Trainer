@@ -58,10 +58,7 @@ namespace WPF_Pocket_Trainer.Views
                 // Close the current SignIN page's window
                 Window.GetWindow(this).Close();
             }
-            else
-            {
-                _loginController.ShowErrorMessage();
-            }
+            
         }
         private void SignInButton_Click(object sender, RoutedEventArgs e)
         {

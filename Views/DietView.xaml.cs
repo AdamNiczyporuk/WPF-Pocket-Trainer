@@ -36,6 +36,7 @@ namespace WPF_Pocket_Trainer.Views
         private ApplicationDbContext _context;
         private UserRepository _userRepository;
         private DietRepository _dietRepository;
+        private String dietData;
 
         public DietView()
         {
@@ -68,6 +69,8 @@ namespace WPF_Pocket_Trainer.Views
                     DataViewBorder.Visibility = Visibility.Visible;
                     GenerateDietVisibility.Visibility = Visibility.Visible;
                     SaveButtonVisibility.Visibility = Visibility.Visible;
+                    DietTextBlock1.Visibility = Visibility.Visible;
+                    DietTextBlock2.Visibility = Visibility.Visible;
                     var existingDiet = _dietRepository.GetUserDiets(UserSession.CurrentUser.Id);
                     var dietParts = SplitDietIntoTwoColumns(existingDiet[0].Text);
                     FormatTextBlock(DietTextBlock1, dietParts.Item1);
@@ -80,14 +83,16 @@ namespace WPF_Pocket_Trainer.Views
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            Diet diet = new Diet()
+            if (dietData != null)
             {
-                Text = DietTextBlock1.Text + DietTextBlock2.Text,
-                UserId = UserSession.CurrentUser.Id
-            };
-            _dietRepository.Add(diet);
-            MessageBox.Show("Diet saved successfully!");
-
+                Diet diet = new Diet()
+                {
+                        Text = dietData,
+                        UserId = UserSession.CurrentUser.Id
+                    };
+                    _dietRepository.Add(diet);
+                    MessageBox.Show("Diet saved successfully!");
+            }
         }
         private void GenerateButton_Click(object sender, RoutedEventArgs e) 
         {
@@ -117,6 +122,7 @@ namespace WPF_Pocket_Trainer.Views
 
             var  response = await responseTask;
 
+            dietData = response;
             DietTextBlock3.Visibility = Visibility.Collapsed;
             DietTextBlock1.Visibility = Visibility.Visible;
             DietTextBlock2.Visibility = Visibility.Visible;
@@ -129,6 +135,7 @@ namespace WPF_Pocket_Trainer.Views
 
            
         }
+        
         private Tuple<string, string> SplitDietIntoTwoColumns(string diet)
         {
             var dietLines = diet.Split(new[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
