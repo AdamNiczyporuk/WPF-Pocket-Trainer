@@ -20,38 +20,8 @@
                 <RowDefinition Height="450" />
             </Grid.RowDefinitions>
 
-            <Border x:Name="WarningBorder" CornerRadius="10" Background="#313334" Margin="175,100,175,100" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Grid Grid.Row="1" 
-                      Grid.Column="1" 
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Center" Height="235" Width="214">
 
-                    <TextBlock x:Name="WarningTextBlock"
-                        TextAlignment="Center"
-                        Text="Proszę uzupełnić dane&#xA;w Settings"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Top"
-                       FontSize="15"
-                       Foreground="White"
-                       FontWeight="Bold" Margin="-7,73,0,0" 
-                       Visibility="Collapsed"
-                        
-                    />
-                    <Button x:Name="WarningButton"
-                            Width="120" Height="40" 
-                            HorizontalAlignment="Center" 
-                            VerticalAlignment="Top" 
-                            Content="Go to Settings"
-                        Click="NavigateToSettings"
-                            Style="{DynamicResource RoundButton}"
-                            Background="#4CAF50" 
-                            Foreground="White"
-                             FontWeight="Bold" Margin="0,125,0,0"
-                        Visibility="Collapsed"
-                        />
-                </Grid>
-            </Border>
-            <Border Grid.Row="1" Grid.Column="1" CornerRadius="10" Background="#313334" Margin="0,50,0,50">
+            <Border x:Name="DataViewBorder" Grid.Row="1" Grid.Column="1" CornerRadius="10" Background="#313334" Margin="0,50,0,50" Visibility="Collapsed">
                 <Grid Margin="5,5,5,5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -82,11 +52,12 @@
                         TextAlignment="Center"
                         VerticalAlignment="Top"
                         HorizontalAlignment="Left" 
-                        Margin="162,121,0,0" Grid.ColumnSpan="2"
-                               Visibility="Collapsed"/>
+                        Margin="171,132,0,0" Grid.ColumnSpan="2"
+                         Visibility="Collapsed"      />
                 </Grid>
             </Border>
             <Button 
+                x:Name="SaveButtonVisibility"
                   Width="120" Height="40" 
                   HorizontalAlignment="Center" 
                   VerticalAlignment="Bottom" 
@@ -98,8 +69,10 @@
                   Foreground="White"
                    FontWeight="Bold"
                     Click="SaveButton_Click"
-                Margin="150,0,0,-20"/>
+                Margin="150,0,0,-20"
+                Visibility="Collapsed"/>
             <Button 
+                x:Name="GenerateDiet"
                        Width="120" Height="40" 
                           HorizontalAlignment="Center" 
                           VerticalAlignment="Bottom" 
@@ -111,7 +84,8 @@
                           Foreground="White"
                            FontWeight="Bold"
                                Click="GenerateButton_Click"
-                       Margin="0,0,150,-20"/>
+                       Margin="0,0,150,-20"
+                Visibility="Collapsed"/>
             <TextBlock Text="Diet"
             Foreground="White"
             FontSize="24"
@@ -121,8 +95,47 @@
              FontFamily="/Fonts/Poppins-Regular.ttf"
              Margin="6,6,0,0" Height="38" Grid.ColumnSpan="2" Width="57" RenderTransformOrigin="0.497,0.483" Grid.RowSpan="2"
             />
+
+
+
+
+
+
+
+            <Border x:Name="WarningBorder" CornerRadius="10" Background="#313334"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="209" Grid.Column="1" Margin="224,132,0,0" Visibility="Collapsed">
+                <Grid 
+          Grid.Column="1" 
+          HorizontalAlignment="Left" 
+          VerticalAlignment="Top" Height="235" Width="214" >
+
+                    <TextBlock x:Name="WarningTextBlock"
+            TextAlignment="Center"
+            Text="Proszę uzupełnić dane&#xA;w Settings"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top"
+           FontSize="15"
+           Foreground="White"
+           FontWeight="Bold" Margin="-7,73,0,0" 
+           
+            
+        />
+                    <Button x:Name="WarningButton"
+                Width="120" Height="40" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
+                Content="Go to Settings"
+            Click="NavigateToSettings"
+                Style="{DynamicResource RoundButton}"
+                Background="#4CAF50" 
+                Foreground="White"
+                 FontWeight="Bold" Margin="0,125,0,0"
+            
+            />
+                </Grid>
+            </Border>
         </Grid>
 
     </Border>
+
 
 </UserControl>

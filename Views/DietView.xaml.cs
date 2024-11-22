@@ -6,6 +6,7 @@ using KCK_Project__Console_Pocket_trainer_.Models;
 using KCK_Project__Console_Pocket_trainer_.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,14 +51,15 @@ namespace WPF_Pocket_Trainer.Views
 
             if (_currentUser.Height == null || _currentUser.Weight == null || _currentUser.TrainingsPerWeek == null)
             {
-                WarningTextBlock.Visibility = Visibility.Visible;
-                WarningButton.Visibility = Visibility.Visible;
+                
                 WarningBorder.Visibility = Visibility.Visible;
             }
             else
             {
                 if (_dietRepository.GetUserDiets(UserSession.CurrentUser.Id).Count() ==0)
                 {
+                    DataViewBorder.Visibility = Visibility.Visible;
+
                     GenerateDiet(_dietRepository);
                 }
                 else if (_dietRepository.GetUserDiets(UserSession.CurrentUser.Id).Any())
@@ -100,9 +102,9 @@ namespace WPF_Pocket_Trainer.Views
         private  async void GenerateDiet(DietRepository dietRepository)
         {
 
-            // Show "Generating Diet" message
-            DietTextBlock1.Text = "Generating Diet...";
-            DietTextBlock2.Text = "";
+            DietTextBlock3.Visibility = Visibility.Visible;
+            DietTextBlock1.Visibility = Visibility.Collapsed;
+            DietTextBlock2.Visibility = Visibility.Collapsed;
 
             ChatGPT_diet.SetUpSetting();
             string prompt = ($"My weigh={UserSession.CurrentUser.Weight},Height={UserSession.CurrentUser.Height},TrainingsPerWeek={UserSession.CurrentUser.TrainingsPerWeek}.Write me a diet plan for 7 seven days.");
@@ -111,9 +113,11 @@ namespace WPF_Pocket_Trainer.Views
 
             var  response = await responseTask;
 
-           
+            DietTextBlock3.Visibility = Visibility.Collapsed;
+            DietTextBlock1.Visibility = Visibility.Visible;
+            DietTextBlock2.Visibility = Visibility.Visible;
 
-           
+
             var dietParts = SplitDietIntoTwoColumns(response);
             FormatTextBlock(DietTextBlock1, dietParts.Item1);
             FormatTextBlock(DietTextBlock2, dietParts.Item2);
