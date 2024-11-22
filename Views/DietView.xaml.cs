@@ -80,10 +80,12 @@ namespace WPF_Pocket_Trainer.Views
                 UserId = UserSession.CurrentUser.Id
             };
             _dietRepository.Add(diet);
+            MessageBox.Show("Diet saved successfully!");
 
         }
         private void GenerateButton_Click(object sender, RoutedEventArgs e) 
         {
+            GenerateDiet(_dietRepository);
             
         }
 
@@ -98,6 +100,10 @@ namespace WPF_Pocket_Trainer.Views
         private  async void GenerateDiet(DietRepository dietRepository)
         {
 
+            // Show "Generating Diet" message
+            DietTextBlock1.Text = "Generating Diet...";
+            DietTextBlock2.Text = "";
+
             ChatGPT_diet.SetUpSetting();
             string prompt = ($"My weigh={UserSession.CurrentUser.Weight},Height={UserSession.CurrentUser.Height},TrainingsPerWeek={UserSession.CurrentUser.TrainingsPerWeek}.Write me a diet plan for 7 seven days.");
 
@@ -105,6 +111,7 @@ namespace WPF_Pocket_Trainer.Views
 
             var  response = await responseTask;
 
+           
 
            
             var dietParts = SplitDietIntoTwoColumns(response);

@@ -75,6 +75,15 @@
                         HorizontalAlignment="Left" 
                         Margin="0,10,0,5"/>
                     </Viewbox>
+                    <TextBlock x:Name="DietTextBlock3" 
+                         Text="Generating Diet..."
+                          FontSize="40"
+                        Foreground="White"
+                        TextAlignment="Center"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left" 
+                        Margin="162,121,0,0" Grid.ColumnSpan="2"
+                               Visibility="Collapsed"/>
                 </Grid>
             </Border>
             <Button 
