@@ -19,8 +19,6 @@ namespace APIS
     public class API
     {
         public static IConfiguration Configuration { get; private set; }
-       
-
         private readonly HttpClient _httpClient;
         private string apiKey;
         private string LoadApiKey()

@@ -59,7 +59,6 @@
                     <RadioButton Content="Trainings" 
                      Height="50" 
                      Foreground="White"
-                     IsChecked="True"
                      FontSize="14"
                      Style="{StaticResource MenuButtonTheme}"
                      Command="{Binding TrainingsViewCommand}"
