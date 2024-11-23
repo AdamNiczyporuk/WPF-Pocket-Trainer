@@ -13,64 +13,80 @@
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Margin" Value="0,5,0,0" />
         </Style>
+        <!-- Styl dla ramki -->
+        <Style TargetType="Border" x:Key="DetailBorder">
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Margin" Value="0,5,0,5" />
+        </Style>
     </UserControl.Resources>
 
     <Border CornerRadius="10" Background="#1b1d1e" Padding="20">
-        <StackPanel>
-            <!-- Tytuł -->
-            <TextBlock Text="Exercise Details"
-                       FontSize="18"
-                       Foreground="White"
-                       FontWeight="Bold"
-                       Margin="0,0,0,10" />
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Tytuł -->
+                <TextBlock Text="Exercise Details"
+                           FontSize="18"
+                           Foreground="White"
+                           FontWeight="Bold"
+                           Margin="0,0,0,10" />
 
-            <!-- Szczegóły ćwiczenia -->
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                <!-- Szczegóły ćwiczenia -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Name:" Style="{StaticResource DetailLabel}" Width="100"/>
+                    <Border Style="{StaticResource DetailBorder}" Width="200">
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" />
+                    </Border>
+                </StackPanel>
 
-                <!-- Id ćwiczenia -->
-                <TextBlock Text="ID:" Style="{StaticResource DetailLabel}" Grid.Row="0" Grid.Column="0" />
-                <TextBlock Text="{Binding Id}" Foreground="White" Grid.Row="0" Grid.Column="1" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Type:" Style="{StaticResource DetailLabel}" Width="100"/>
+                    <Border Style="{StaticResource DetailBorder}" Width="200">
+                        <TextBlock Text="{Binding Type}" Style="{StaticResource DetailLabel}" />
+                    </Border>
+                </StackPanel>
 
-                <!-- Nazwa ćwiczenia -->
-                <TextBlock Text="Name:" Style="{StaticResource DetailLabel}" Grid.Row="1" Grid.Column="0" />
-                <TextBlock Text="{Binding Name}" Foreground="White" Grid.Row="1" Grid.Column="1" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Muscle:" Style="{StaticResource DetailLabel}" Width="100"/>
+                    <Border Style="{StaticResource DetailBorder}" Width="200">
+                        <TextBlock Text="{Binding Muscle}" Style="{StaticResource DetailLabel}" />
+                    </Border>
+                </StackPanel>
 
-                <!-- Typ ćwiczenia -->
-                <TextBlock Text="Type:" Style="{StaticResource DetailLabel}" Grid.Row="2" Grid.Column="0" />
-                <TextBlock Text="{Binding Type}" Foreground="White" Grid.Row="2" Grid.Column="1" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Equipment:" Style="{StaticResource DetailLabel}" Width="100"/>
+                    <Border Style="{StaticResource DetailBorder}" Width="200">
+                        <TextBlock Text="{Binding Equipment}" Style="{StaticResource DetailLabel}" />
+                    </Border>
+                </StackPanel>
 
-                <!-- Mięsień -->
-                <TextBlock Text="Muscle:" Style="{StaticResource DetailLabel}" Grid.Row="3" Grid.Column="0" />
-                <TextBlock Text="{Binding Muscle}" Foreground="White" Grid.Row="3" Grid.Column="1" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Difficulty:" Style="{StaticResource DetailLabel}" Width="100"/>
+                    <Border Style="{StaticResource DetailBorder}" Width="200">
+                        <TextBlock Text="{Binding Difficulty}" Style="{StaticResource DetailLabel}" />
+                    </Border>
+                </StackPanel>
 
-                <!-- Sprzęt -->
-                <TextBlock Text="Equipment:" Style="{StaticResource DetailLabel}" Grid.Row="4" Grid.Column="0" />
-                <TextBlock Text="{Binding Equipment}" Foreground="White" Grid.Row="4" Grid.Column="1" />
+                <StackPanel Height="200" Orientation="Horizontal">
+                    <TextBlock Text="Instructions:" Style="{StaticResource DetailLabel}" Width="100"/>
+                    <Border Style="{StaticResource DetailBorder}" Width="530">
+                        <TextBlock Text="{Binding Instructions}" Style="{StaticResource DetailLabel}" TextWrapping="Wrap"/>
+                    </Border>
+                </StackPanel>
 
-                <!-- Trudność -->
-                <TextBlock Text="Difficulty:" Style="{StaticResource DetailLabel}" Grid.Row="5" Grid.Column="0" />
-                <TextBlock Text="{Binding Difficulty}" Foreground="White" Grid.Row="5" Grid.Column="1" />
-
-                <!-- Instrukcje -->
-                <TextBlock Text="Instructions:" Style="{StaticResource DetailLabel}" Grid.Row="6" Grid.Column="0" />
-                <TextBlock Text="{Binding Instructions}" TextWrapping="Wrap" Foreground="White" Grid.Row="6" Grid.Column="1" />
-            </Grid>
-
-            <!-- Powrót -->
-            <Button Content="Back to Exercises"
-                    Width="150"
-                    Margin="0,20,0,0"
-                    HorizontalAlignment="Left"
-                    Background="#2c2f30"
-                    Foreground="White"
-                    BorderBrush="#4c4f50"
-                    BorderThickness="1"
-                    Click="BackButton_Click" />
-        </StackPanel>
+                <!-- Powrót -->
+                <Button Content="Back to Exercises"
+                        Width="150"
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Left"
+                        Background="#2c2f30"
+                        Foreground="White"
+                        BorderBrush="#4c4f50"
+                        BorderThickness="1"
+                        Click="BackButton_Click" />
+            </StackPanel>
+        </ScrollViewer>
     </Border>
-
 </UserControl>

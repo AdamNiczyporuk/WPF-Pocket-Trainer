@@ -79,7 +79,7 @@
             <!-- Przycisk na dole -->
             <Button Content="Show Exercise Details"
                     Style="{StaticResource DarkButton}"
-                   
+                    Click="ExercicseDetailView"
                     HorizontalAlignment="Left"/>
         </StackPanel>
     </Border>

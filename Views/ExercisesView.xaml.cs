@@ -51,5 +51,15 @@ namespace WPF_Pocket_Trainer.Views
             // Odświeżenie listy ćwiczeń
             ExercisesListBox.ItemsSource = exercises;
         }
+        private void ExercicseDetailView(object sender, RoutedEventArgs e)
+        {
+            if (ExercisesListBox.SelectedItem is Exercise selectedExercise)
+            {
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new ExerciseDetailView(selectedExercise));
+                }
+            }
+        }
     }
 }

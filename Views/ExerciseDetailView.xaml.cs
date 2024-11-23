@@ -28,7 +28,10 @@ namespace WPF_Pocket_Trainer.Views
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Logika powrotu do listy ćwiczeń, np. zmiana widoku
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new ExercisesView());
+            }
         }
     }
 }
