@@ -16,5 +16,10 @@ namespace KCK_Project__Console_Pocket_trainer_.Models
         public DateTime CreatedAt { get; set; }
 
         public ICollection<ExerciseToTrainingPlan> Exercises { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
