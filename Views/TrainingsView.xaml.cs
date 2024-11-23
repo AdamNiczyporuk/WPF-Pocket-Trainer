@@ -37,14 +37,16 @@ namespace WPF_Pocket_Trainer.Views
 
         private void NavigateToTrainingPlans(object sender, RoutedEventArgs e)
         {
-            // Implement navigation to Training Plans
-            MessageBox.Show("Navigating to Training Plans");
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new TrainingPlans());
+            }
         }
 
         private void NavigateToTrainings(object sender, RoutedEventArgs e)
         {
             // Implement navigation to Trainings
-            MessageBox.Show("Navigating to Trainings");
+            MessageBox.Show("Navigating to Statistics");
         }
 
         private void NavigateToStatistics(object sender, RoutedEventArgs e)
