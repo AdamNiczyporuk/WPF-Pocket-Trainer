@@ -87,9 +87,12 @@ namespace WPF_Pocket_Trainer.Views
 
         private void EditTrainingPlan_Click(object sender, RoutedEventArgs e)
         {
+            if (sender is Button button && button.CommandParameter is TrainingPlan trainingPlan)
             {
-                // Placeholder for editing the selected training plan
-                MessageBox.Show("Edit Training Plan clicked");
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new EditTrainingPlan(trainingPlan));
+                }
             }
         }
         private void DeleteTrainingPlan_Click(object sender, RoutedEventArgs e)

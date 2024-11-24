@@ -76,10 +76,10 @@
                                 <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
                                     <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
                                         <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" Width="200"/>
-                                        <Button Style="{StaticResource IconButton}" Click="EditTrainingPlan_Click">
+                                        <Button Style="{StaticResource IconButton}" Click="EditTrainingPlan_Click"  CommandParameter="{Binding}">
                                             <Image Source="/Dashboard/Images/settings.png" Width="20" Height="20"/>
                                         </Button>
-                                        <Button Style="{StaticResource IconButton}" Click="ManageExercises_Click">
+                                        <Button Style="{StaticResource IconButton}" Click="ManageExercises_Click"  CommandParameter="{Binding}">
                                             <Image Source="/Dashboard/Images/fit.png" Width="20" Height="20"/>
                                         </Button>
                                         <Button Style="{StaticResource IconButton}" Click="DeleteTrainingPlan_Click" CommandParameter="{Binding}">
