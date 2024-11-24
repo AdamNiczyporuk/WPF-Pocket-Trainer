@@ -23,32 +23,21 @@
     </UserControl.Resources>
 
     <StackPanel Background="#1b1d1e">
-        <TextBlock Text="Manage Training Plan Exercises"
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Training Plan: "
                    FontSize="18"
                    Foreground="White"
                    FontWeight="Bold"
-                   Margin="0,20,0,20" />
-        <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="0,0,0,20">
-            <StackPanel>
-                <TextBlock Text="Training Plan Details" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Plan Name:  " Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock Text="{Binding TrainingPlan.Name}" Style="{StaticResource DetailLabel}"  Grid.Column="1" VerticalAlignment="Center"/>
-                </Grid>
-                <Grid Margin="0,0,0,10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Description:  " Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBlock Text="{Binding TrainingPlan.Description}" Style="{StaticResource DetailLabel}" Grid.Column="1" VerticalAlignment="Center"/>
-                </Grid>
-            </StackPanel>
-        </Border>
+                   Margin="0,20,0,20"
+                   HorizontalAlignment="Center" />
+            <TextBlock Text="{Binding TrainingPlan.Name}"
+                   FontSize="18"
+                   Foreground="White"
+                   FontWeight="Bold"
+                   Margin="0,20,0,20"
+                   HorizontalAlignment="Center" />
+        </StackPanel>
+        
 
         <Grid>
             <Grid.ColumnDefinitions>
@@ -58,23 +47,23 @@
 
             <!-- Lista dostępnych ćwiczeń -->
             <StackPanel Grid.Column="0" Margin="10">
-                <TextBlock Text="Search for an exercise:" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14" />
+                <TextBlock Text="Search for an exercise:" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="14" />
                 <TextBox x:Name="SearchTextBox" Width="300" Height="30" Padding="5" Margin="0,10,10,10" HorizontalAlignment="Left" TextChanged="SearchTextBox_TextChanged" Background="#2c2f30" Foreground="White" BorderBrush="#4c4f50" BorderThickness="1" />
-                <TextBlock Text="Available exercises:" Foreground="White" Margin="0,0,0,0" FontSize="14" Height="25" />
-                <ListBox x:Name="AvailableExercisesListBox"  Background="#2c2f30" Foreground="White" HorizontalAlignment="Stretch" BorderThickness="0" Padding="10" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="250" />
+                <TextBlock Text="Available exercises:" FontWeight="Bold" Foreground="White" Margin="0,0,0,0" FontSize="14" Height="25" />
+                <ListBox x:Name="AvailableExercisesListBox" Background="#2c2f30" Foreground="White" HorizontalAlignment="Stretch" BorderThickness="0" Padding="10" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="388" />
             </StackPanel>
 
             <!-- Lista przypisanych ćwiczeń -->
             <StackPanel Grid.Column="1" Margin="10">
                 <TextBlock Text="Assigned Exercises" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox Height="300" ItemsSource="{Binding TrainingPlanExercises}" Background="#1b1d1e" BorderThickness="0">
+                    <ListBox  Height="450" ItemsSource="{Binding TrainingPlanExercises}" Background="#1b1d1e" BorderThickness="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
+                                <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" HorizontalAlignment="Stretch" Width="300">
                                     <StackPanel>
                                         <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" VerticalAlignment="Center"/>
-                                        <TextBlock Text="{Binding Path=SetsToString}" Style="{StaticResource DetailLabel}" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding SetsToString}" Style="{StaticResource DetailLabel}" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>

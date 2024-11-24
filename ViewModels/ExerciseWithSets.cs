@@ -33,14 +33,17 @@ namespace KCK_Project__Console_Pocket_trainer_.ViewModels
             Instructions = exercsie.Instructions;
             Sets = sets;
         }
-        public string SetsToString()
+        public string SetsToString
         {
-            var setsString = new StringBuilder();
-            for (int i = 0; i < Sets; i++)
+            get
             {
-                setsString.AppendLine($"{RepsList[i]} x {WeightList[i]} kg");
+                var setsString = new StringBuilder();
+                for (int i = 0; i < Sets; i++)
+                {
+                    setsString.Append($"{RepsList[i]}x{WeightList[i]}/");
+                }
+                return setsString.ToString().Remove(setsString.Length-1);
             }
-            return setsString.ToString().TrimEnd();
         }
     }
 }
