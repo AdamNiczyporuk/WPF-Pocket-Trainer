@@ -17,6 +17,7 @@ using KCK_Project__Console_Pocket_trainer_.Models;
 using KCK_Project__Console_Pocket_trainer_.Data;
 using WPF_Pocket_Trainer.Models;
 using KCK_Project__Console_Pocket_trainer_.Interfaces;
+using WPF_Pocket_Trainer.Views.TreningPlan;
 
 namespace WPF_Pocket_Trainer.Views
 {
@@ -121,8 +122,13 @@ namespace WPF_Pocket_Trainer.Views
 
         private void ManageExercises_Click(object sender, RoutedEventArgs e)
         {
-            // Placeholder for managing exercises in the selected training plan
-            MessageBox.Show("Manage Exercises clicked");
+            if (sender is Button button && button.CommandParameter is TrainingPlan trainingPlan)
+            {
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new ManageTrainingPlanExercises(trainingPlan));
+                }
+            }
         }
     }
 }

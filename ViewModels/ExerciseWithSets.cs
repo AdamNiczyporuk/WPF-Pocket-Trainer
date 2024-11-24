@@ -9,7 +9,7 @@ namespace KCK_Project__Console_Pocket_trainer_.ViewModels
 {
     public class ExerciseWithSets : Exercise
     {
-       
+
         public int Sets { get; set; }
         public List<int> RepsList { get; set; }
         public List<int> WeightList { get; set; }
@@ -33,14 +33,14 @@ namespace KCK_Project__Console_Pocket_trainer_.ViewModels
             Instructions = exercsie.Instructions;
             Sets = sets;
         }
-        public string SetsToString() {
-            string setsString = "";
+        public string SetsToString()
+        {
+            var setsString = new StringBuilder();
             for (int i = 0; i < Sets; i++)
             {
-                setsString += $"{RepsList[i]} x {WeightList[i]} kg, ";
+                setsString.AppendLine($"{RepsList[i]} x {WeightList[i]} kg");
             }
-            setsString = setsString.Remove(setsString.Length - 2);
-            return setsString;
+            return setsString.ToString().TrimEnd();
         }
     }
 }
