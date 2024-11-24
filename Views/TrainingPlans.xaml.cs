@@ -16,6 +16,7 @@ using KCK_Project__Console_Pocket_trainer_.Repositories;
 using KCK_Project__Console_Pocket_trainer_.Models;
 using KCK_Project__Console_Pocket_trainer_.Data;
 using WPF_Pocket_Trainer.Models;
+using KCK_Project__Console_Pocket_trainer_.Interfaces;
 
 namespace WPF_Pocket_Trainer.Views
 {
@@ -26,6 +27,7 @@ namespace WPF_Pocket_Trainer.Views
     {
         private readonly TrainingPlanRepository _trainingPlanRepository;
         public List<TrainingPlan> UserTrainingPlans { get; set; }
+        public TrainingPlan SelectedTrainingPlan { get; set; }
 
         public TrainingPlans()
         {
@@ -36,13 +38,19 @@ namespace WPF_Pocket_Trainer.Views
 
         private void LoadTrainingPlans()
         {
-          
+
             int currentUserId = UserSession.CurrentUser.Id;
             UserTrainingPlans = _trainingPlanRepository.GetUserTrainingPlans(currentUserId);
             DataContext = this;
         }
 
-        
+        private void Refresh()
+        {
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new TrainingPlans());
+            }
+        }
 
         private void AddNewTrainingPlan_Click(object sender, RoutedEventArgs e)
         {
@@ -66,13 +74,9 @@ namespace WPF_Pocket_Trainer.Views
             bool isAdded = _trainingPlanRepository.Add(trainingPlan);
             if (isAdded)
             {
-               
+
                 MessageBox.Show("Training plan added successfully!");
-                if (Window.GetWindow(this) is DashboardView mainWindow)
-                {
-                    mainWindow.ChangeView(new TrainingPlans());
-                }
-               
+                Refresh();
             }
             else
             {
@@ -83,14 +87,33 @@ namespace WPF_Pocket_Trainer.Views
 
         private void EditTrainingPlan_Click(object sender, RoutedEventArgs e)
         {
-            // Placeholder for editing the selected training plan
-            MessageBox.Show("Edit Training Plan clicked");
+            {
+                // Placeholder for editing the selected training plan
+                MessageBox.Show("Edit Training Plan clicked");
+            }
         }
-
         private void DeleteTrainingPlan_Click(object sender, RoutedEventArgs e)
         {
-            // Placeholder for deleting the selected training plan
-            MessageBox.Show("Delete Training Plan clicked");
+            if (sender is Button button && button.CommandParameter is TrainingPlan trainingPlan)
+            {
+                var result = MessageBox.Show($"Are you sure you want to delete the training plan '{trainingPlan.Name}'?",
+                                             "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    bool isDeleted = _trainingPlanRepository.Delete(trainingPlan);
+                    if (isDeleted)
+                    {
+                       
+                        MessageBox.Show("Training plan deleted successfully!");
+                        Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete training plan. Please try again.");
+                    }
+                }
+            }
         }
 
         private void ManageExercises_Click(object sender, RoutedEventArgs e)

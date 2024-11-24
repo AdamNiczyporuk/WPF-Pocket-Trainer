@@ -70,7 +70,7 @@
             <StackPanel>
                 <TextBlock Text="Existing Training Plans" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox MaxHeight="200" ItemsSource="{Binding UserTrainingPlans}" SelectedItem="{Binding SelectedTrainingPlan}" Background="#1b1d1e" BorderThickness="0">
+                    <ListBox MaxHeight="200" ItemsSource="{Binding UserTrainingPlans}" Background="#1b1d1e" BorderThickness="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
@@ -82,7 +82,7 @@
                                         <Button Style="{StaticResource IconButton}" Click="ManageExercises_Click">
                                             <Image Source="/Dashboard/Images/fit.png" Width="20" Height="20"/>
                                         </Button>
-                                        <Button Style="{StaticResource IconButton}" Click="DeleteTrainingPlan_Click">
+                                        <Button Style="{StaticResource IconButton}" Click="DeleteTrainingPlan_Click" CommandParameter="{Binding}">
                                             <Image Source="/Dashboard/Images/x.png" Width="20" Height="20"/>
                                         </Button>
                                     </StackPanel>
