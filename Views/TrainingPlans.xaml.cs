@@ -36,19 +36,50 @@ namespace WPF_Pocket_Trainer.Views
 
         private void LoadTrainingPlans()
         {
-            // Assuming you have a way to get the current user's ID
+          
             int currentUserId = UserSession.CurrentUser.Id;
             UserTrainingPlans = _trainingPlanRepository.GetUserTrainingPlans(currentUserId);
             DataContext = this;
         }
 
-      
+        
 
         private void AddNewTrainingPlan_Click(object sender, RoutedEventArgs e)
         {
-            // Placeholder for adding a new training plan
-            MessageBox.Show("Add New Training Plan clicked");
+            string planName = NewPlanName.Text.Trim();
+            string planDescription = NewPlanDescription.Text.Trim();
+
+            if (string.IsNullOrEmpty(planName) || string.IsNullOrEmpty(planDescription))
+            {
+                MessageBox.Show("Please enter a name and description for the training plan");
+                return;
+            }
+
+            var trainingPlan = new TrainingPlan
+            {
+                UserId = UserSession.CurrentUser.Id,
+                Name = planName,
+                Description = planDescription,
+                CreatedAt = DateTime.Now
+            };
+
+            bool isAdded = _trainingPlanRepository.Add(trainingPlan);
+            if (isAdded)
+            {
+               
+                MessageBox.Show("Training plan added successfully!");
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new TrainingPlans());
+                }
+               
+            }
+            else
+            {
+                MessageBox.Show("Failed to add training plan. Please try again.");
+            }
         }
+
 
         private void EditTrainingPlan_Click(object sender, RoutedEventArgs e)
         {
