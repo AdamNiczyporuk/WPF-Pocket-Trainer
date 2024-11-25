@@ -102,5 +102,17 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
                 }
             }
         }
+        private void EditExercise_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.CommandParameter is ExerciseWithSets exerciseWithSets)
+            {
+                var exercise = _exerciseRepository.GetExerciseById(exerciseWithSets.Id);
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new EditExerciseToTrainingPlan(exercise, _viewModel.TrainingPlan));
+                }
+
+            }
+        }
     }
 }
