@@ -27,6 +27,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
     {
         private readonly ExerciseRepository _exerciseRepository;
         private List<Exercise> _allExercises;
+        private ManageTrainingPlanExercisesViewModel _viewModel;
 
         public ManageTrainingPlanExercises(TrainingPlan trainingPlan)
         {
@@ -43,6 +44,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
 
             var viewModel = new ManageTrainingPlanExercisesViewModel(trainingPlan, trainingPlanExercises, availableExercises);
             AvailableExercisesListBox.ItemsSource = _allExercises;
+            _viewModel = viewModel;
             DataContext = viewModel;
         }
 
@@ -51,6 +53,18 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
             var searchText = SearchTextBox.Text.ToLower();
             var filteredExercises = _allExercises.Where(ex => ex.Name.ToLower().Contains(searchText)).ToList();
             AvailableExercisesListBox.ItemsSource = filteredExercises;
+        }
+        private void AddExercise_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (sender is Button button && button.CommandParameter is Exercise exercise)
+            {
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new AddExerciseToTrainingPlanView(exercise, _viewModel.TrainingPlan));
+                }
+
+            }
         }
     }
 }

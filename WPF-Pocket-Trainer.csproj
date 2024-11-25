@@ -17,6 +17,7 @@
     <None Remove="Dashboard\Images\Kot.png" />
     <None Remove="Dashboard\Images\militaryPress.png" />
     <None Remove="Dashboard\Images\monkey.gif" />
+    <None Remove="Dashboard\Images\plus.png" />
     <None Remove="Dashboard\Images\restaurant.png" />
     <None Remove="Dashboard\Images\settings.png" />
     <None Remove="Dashboard\Images\stats.png" />
@@ -55,6 +56,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Dashboard\Images\Kot.png" />
+    <Resource Include="Dashboard\Images\plus.png" />
     <Resource Include="Dashboard\Images\restaurant.png" />
     <Resource Include="Dashboard\Images\settings.png" />
     <Resource Include="Dashboard\Images\stats.png" />
