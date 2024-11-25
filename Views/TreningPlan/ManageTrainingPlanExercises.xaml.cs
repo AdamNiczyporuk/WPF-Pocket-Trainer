@@ -29,6 +29,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
         private List<Exercise> _allExercises;
         private ManageTrainingPlanExercisesViewModel _viewModel;
 
+
         public ManageTrainingPlanExercises(TrainingPlan trainingPlan)
         {
             InitializeComponent();

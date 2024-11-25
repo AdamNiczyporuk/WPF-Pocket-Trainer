@@ -1,4 +1,6 @@
-﻿using KCK_Project__Console_Pocket_trainer_.Models;
+﻿using KCK_Project__Console_Pocket_trainer_.Data;
+using KCK_Project__Console_Pocket_trainer_.Models;
+using KCK_Project__Console_Pocket_trainer_.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
     public partial class AddExerciseToTrainingPlanView : UserControl
     {
         private AddExerciseToTrainingPlanViewModel _viewModel;
+        private ExerciseToTrainingPlanRepository _exerciseToTrainingPlanRepository;
         public AddExerciseToTrainingPlanView(Exercise exercise, TrainingPlan trainingPlan)
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
                 Exercise = exercise,
                 TrainingPlan = trainingPlan
             };
+            _exerciseToTrainingPlanRepository = new ExerciseToTrainingPlanRepository(new ApplicationDbContext());
             DataContext = _viewModel;
         }
 
@@ -68,6 +72,18 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
                 var repsTextBox = setPanel.Children[1] as TextBox;
                 var weightTextBox = setPanel.Children[3] as TextBox;
 
+                if (string.IsNullOrWhiteSpace(repsTextBox.Text) || !int.TryParse(repsTextBox.Text, out int reps) || reps <= 0 || reps >= 100)
+                {
+                    MessageBox.Show($"Please enter a valid number of reps (1-99) for set {SetsPanel.Children.IndexOf(setPanel) + 1}.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(weightTextBox.Text) || !int.TryParse(weightTextBox.Text, out int weight) || weight <= 0 || weight >= 500)
+                {
+                    MessageBox.Show($"Please enter a valid weight (1-499) for set {SetsPanel.Children.IndexOf(setPanel) + 1}.");
+                    return;
+                }
+
                 repsList.Add(repsTextBox.Text);
                 weightList.Add(weightTextBox.Text);
             }
@@ -81,9 +97,18 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
                 Weight = string.Join(",", weightList)
             };
 
-            // Add logic to save exerciseToTrainingPlan to the database or training plan
-
-            MessageBox.Show("Exercise added to training plan!");
+            if (_exerciseToTrainingPlanRepository.Add(exerciseToTrainingPlan))
+            {
+                MessageBox.Show("Exercise added to training plan!");
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new ManageTrainingPlanExercises(_viewModel.TrainingPlan));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error while adding exercise to training plan!");
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
