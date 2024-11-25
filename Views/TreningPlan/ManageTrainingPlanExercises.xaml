@@ -81,10 +81,19 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" HorizontalAlignment="Stretch" Width="300">
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" VerticalAlignment="Center"/>
-                                        <TextBlock Text="{Binding SetsToString}" Style="{StaticResource DetailLabel}" VerticalAlignment="Center"/>
-                                    </StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Grid.Column="0">
+                                            <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding SetsToString}" Style="{StaticResource DetailLabel}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <Button Grid.Column="1" Style="{StaticResource IconButton}" Click="RemoveExercise_Click" CommandParameter="{Binding}">
+                                            <Image Source="/Dashboard/Images/x.png" Width="20" Height="20"/>
+                                        </Button>
+                                    </Grid>
                                 </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

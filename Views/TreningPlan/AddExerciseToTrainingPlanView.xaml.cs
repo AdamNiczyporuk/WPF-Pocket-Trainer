@@ -115,7 +115,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
         {
             if (Window.GetWindow(this) is DashboardView mainWindow)
             {
-                mainWindow.ChangeView(new ExercisesView());
+                mainWindow.ChangeView(new ManageTrainingPlanExercises(_viewModel.TrainingPlan));
             }
         }
     }

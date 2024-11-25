@@ -20,9 +20,9 @@ namespace KCK_Project__Console_Pocket_trainer_.Repositories
             return Save();
         }
 
-        public bool Delete(ExerciseToTrainingPlan exerciseToTrainingPlan)
+        public bool Delete(int trainingPlanId, int exerciseId)
         {
-            _context.ExercisesToTrainingPlans.Remove(exerciseToTrainingPlan);
+            _context.ExercisesToTrainingPlans.Remove(GetExerciseToTrainingPlan(trainingPlanId, exerciseId));
             return Save();
         }
 

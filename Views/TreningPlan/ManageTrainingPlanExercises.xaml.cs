@@ -1,4 +1,5 @@
 ﻿using KCK_Project__Console_Pocket_trainer_.Data;
+using KCK_Project__Console_Pocket_trainer_.Interfaces;
 using KCK_Project__Console_Pocket_trainer_.Models;
 using KCK_Project__Console_Pocket_trainer_.Repositories;
 using KCK_Project__Console_Pocket_trainer_.ViewModels;
@@ -28,13 +29,23 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
         private readonly ExerciseRepository _exerciseRepository;
         private List<Exercise> _allExercises;
         private ManageTrainingPlanExercisesViewModel _viewModel;
+        private ExerciseToTrainingPlanRepository _exerciseToTrainingPlanRepository;
 
 
         public ManageTrainingPlanExercises(TrainingPlan trainingPlan)
         {
             InitializeComponent();
+            
             _exerciseRepository = new ExerciseRepository(new ApplicationDbContext());
+            _exerciseToTrainingPlanRepository = new ExerciseToTrainingPlanRepository(new ApplicationDbContext() );
             LoadData(trainingPlan);
+        }
+        private void Refresh()
+        {
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new ManageTrainingPlanExercises(_viewModel.TrainingPlan));
+            }
         }
 
         private void LoadData(TrainingPlan trainingPlan)
@@ -65,6 +76,30 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
                     mainWindow.ChangeView(new AddExerciseToTrainingPlanView(exercise, _viewModel.TrainingPlan));
                 }
 
+            }
+        }
+        private void RemoveExercise_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var exerciseWithSets = button.CommandParameter as ExerciseWithSets;
+           
+
+            var result = MessageBox.Show($"Are you sure you want to delete this exercise from your training plan?",
+                                         "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                bool isDeleted = _exerciseToTrainingPlanRepository.Delete( _viewModel.TrainingPlan.Id,exerciseWithSets.Id);
+                if (isDeleted)
+                {
+
+                    MessageBox.Show("Exercise deleted successfully!");
+                    Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete exercise. Please try again.");
+                }
             }
         }
     }
