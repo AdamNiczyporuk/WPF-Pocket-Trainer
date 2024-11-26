@@ -91,7 +91,7 @@
                    Width="130"
                    Height="110"/>
                             <Button Content="Trainings"
-                                    
+                             Click="NavigateToTrainings"
                     Width="150"
                     Height="150"
                     Background="Transparent"

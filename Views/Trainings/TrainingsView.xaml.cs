@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Pocket_Trainer.Views.Trainings;
 
 namespace WPF_Pocket_Trainer.Views
 {
@@ -45,8 +46,10 @@ namespace WPF_Pocket_Trainer.Views
 
         private void NavigateToTrainings(object sender, RoutedEventArgs e)
         {
-            // Implement navigation to Trainings
-            MessageBox.Show("Navigating to Statistics");
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new ChooseTrainingPlanView());
+            }
         }
 
         private void NavigateToStatistics(object sender, RoutedEventArgs e)
