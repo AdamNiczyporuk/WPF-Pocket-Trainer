@@ -37,7 +37,7 @@
 
     <StackPanel Background="#1b1d1e">
         <!-- Tytuł -->
-        <TextBlock Text="Let's do some training!"
+        <TextBlock Text="Your training plans:"
                    FontSize="18"
                    Foreground="White"
                    FontWeight="Bold"

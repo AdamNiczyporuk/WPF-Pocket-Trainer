@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using WPF_Pocket_Trainer.Models;
 using WPF_Pocket_Trainer.ViewModels;
+using WPF_Pocket_Trainer.Views.Statistics;
 
 namespace WPF_Pocket_Trainer.Views.Trainings
 {
@@ -46,7 +47,15 @@ namespace WPF_Pocket_Trainer.Views.Trainings
                     StartNewTraining(trainingPlan);
                 }
             }else
-            { }
+            {
+                if (sender is Button button && button.CommandParameter is TrainingPlan trainingPlan)
+                {
+                    if (Window.GetWindow(this) is DashboardView mainWindow)
+                    {
+                        mainWindow.ChangeView(new StatisticsView(trainingPlan));
+                    }
+                }
+            }
         }
         public void StartNewTraining(TrainingPlan trainingPlan) {
             var training = new Training()

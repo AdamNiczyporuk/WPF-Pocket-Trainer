@@ -62,6 +62,25 @@ namespace WPF_Pocket_Trainer.Views.Trainings
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public void FinishTraining_Click(object sender, RoutedEventArgs e)
+        {
+            _training.EndTime = DateTime.Now;
+            var context = new ApplicationDbContext();
+            var trainingRepository = new TrainingRepository(context);
+            if (trainingRepository.Update(_training))
+            {
+                MessageBox.Show("Training finished!");
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new TrainingsView());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error while finishing training!");
+            }
+          
+        }
     }
 
     public class ExerciseComparer : IEqualityComparer<ExerciseWithSets>
