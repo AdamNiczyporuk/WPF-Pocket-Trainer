@@ -116,9 +116,10 @@
                     Content="Finish Training" 
                     Background="#3a3d3e" 
                     Foreground="White" 
+                    FontWeight="Bold"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
-                    Height="25" Width="130"
+                    Height="25" Width="150"
                     Click="FinishTraining_Click"
                     Grid.Row="7"/>
     </StackPanel>

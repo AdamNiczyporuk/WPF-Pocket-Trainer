@@ -64,12 +64,27 @@ namespace WPF_Pocket_Trainer.Views.Trainings
                 UserId = UserSession.CurrentUser.Id,
                 StartTime = DateTime.Now
             };
-            new TrainingRepository(new ApplicationDbContext()).Add(training);
-            if (Window.GetWindow(this) is DashboardView mainWindow)
+            var result = MessageBox.Show($"Are you sure you want to start training with this training plan?",
+                                        "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            if (result == MessageBoxResult.Yes)
             {
-                mainWindow.ChangeView(new DoTrainingView(trainingPlan, training));
+                new TrainingRepository(new ApplicationDbContext()).Add(training);
+                if (Window.GetWindow(this) is DashboardView mainWindow)
+                {
+                    mainWindow.ChangeView(new DoTrainingView(trainingPlan, training));
+                }
             }
         }
-        
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new TrainingsView());
+            }
+
+        }
+
     }
 }

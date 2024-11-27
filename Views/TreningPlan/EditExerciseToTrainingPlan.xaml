@@ -120,8 +120,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
-            <Button Content="Save Changes" Width="100" Margin="0,0,10,0" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50" Click="SaveChangesButton_Click"/>
-            <Button Content="Back" Width="100" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50" Click="BackButton_Click"/>
+            <Button Content="Save Changes"  Width="150" Height="25" Style="{DynamicResource RoundButton}" Margin="0,0,10,0" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50" Click="SaveChangesButton_Click"/>
+            <Button Content="Back" Width="150" Height="25" Style="{DynamicResource RoundButton}" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50" Click="BackButton_Click"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
