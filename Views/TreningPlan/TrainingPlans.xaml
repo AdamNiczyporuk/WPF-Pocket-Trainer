@@ -54,7 +54,10 @@
                     <TextBlock Text="Description" Foreground="White" Margin="5,0,0,0" VerticalAlignment="Top" IsHitTestVisible="False" Visibility="{Binding Text.IsEmpty, ElementName=NewPlanDescription, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                 </Grid>
                 <Button Content="Add Plan"
-                        Width="100"
+                        Style="{DynamicResource RoundButton}"
+                        Width="150"
+                        Height="25"
+                        FontWeight="Bold"
                         Margin="0,20,0,0"
                         HorizontalAlignment="Left"
                         Background="#2c2f30"
@@ -93,5 +96,17 @@
                 </ScrollViewer>
             </StackPanel>
         </Border>
+        <Button Content="Back"
+                        Style="{DynamicResource RoundButton}"
+                        Width="150"
+                        Height="25"
+                        FontWeight="Bold"
+                       
+                        HorizontalAlignment="Left"
+                        Background="#2c2f30"
+                        Foreground="White"
+                        BorderBrush="#4c4f50"
+                        BorderThickness="1"
+                        Click="BackButton_Click"/>
     </StackPanel>
 </UserControl>

@@ -77,10 +77,24 @@
                      ScrollViewer.VerticalScrollBarVisibility="Auto" Height="328" />
 
             <!-- Przycisk na dole -->
+            
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
             <Button Content="Show Exercise Details"
-                    Style="{StaticResource DarkButton}"
+                    Style="{DynamicResource RoundButton}"
                     Click="ExercicseDetailView"
-                    HorizontalAlignment="Left"/>
+                    HorizontalAlignment="Left"
+                    
+                    Height="25"
+                    Width="150" Background="#3a3d3e" FontWeight="Bold" Foreground="White" BorderBrush="#4c4f50"
+                    />
+                <Button Content="Back"
+                    Style="{DynamicResource RoundButton}"
+                    Click="BackButton_Click"
+                    HorizontalAlignment="Right"
+                        Height="25"
+                         Margin="20,0,0,0"
+                    Width="150" Background="#3a3d3e" FontWeight="Bold" Foreground="White" BorderBrush="#4c4f50"/>
+            </StackPanel>
         </StackPanel>
     </Border>
 </UserControl>

@@ -78,11 +78,14 @@
 
                 <!-- Powrót -->
                 <Button Content="Back to Exercises"
+                        Style="{DynamicResource RoundButton}"
                         Width="150"
+                        Height="25"
                         Margin="0,20,0,0"
                         HorizontalAlignment="Left"
                         Background="#2c2f30"
                         Foreground="White"
+                        FontWeight="Bold"
                         BorderBrush="#4c4f50"
                         BorderThickness="1"
                         Click="BackButton_Click" />

@@ -130,5 +130,14 @@ namespace WPF_Pocket_Trainer.Views
                 }
             }
         }
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new TrainingsView());
+            }
+
+        }
     }
 }
