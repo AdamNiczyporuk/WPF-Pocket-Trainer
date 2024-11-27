@@ -39,7 +39,28 @@ namespace WPF_Pocket_Trainer.Views.Trainings
 
         public void StartTraining_Click(object sender, RoutedEventArgs e)
         {
-            //todo
+            if(!_isStats)
+            {
+                if (sender is Button button && button.CommandParameter is TrainingPlan trainingPlan)
+                {
+                    StartNewTraining(trainingPlan);
+                }
+            }else
+            { }
         }
+        public void StartNewTraining(TrainingPlan trainingPlan) {
+            var training = new Training()
+            {
+                TreningPlanId = trainingPlan.Id,
+                UserId = UserSession.CurrentUser.Id,
+                StartTime = DateTime.Now
+            };
+            new TrainingRepository(new ApplicationDbContext()).Add(training);
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new DoTrainingView(trainingPlan, training));
+            }
+        }
+        
     }
 }
