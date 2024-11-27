@@ -33,11 +33,15 @@
                     </Border.Clip>
                     <Grid>
                         <StackPanel>
-                            <TextBlock Text="Marek Lubi &#x0a;Koty"
+                            <TextBlock Text="Make trainig plans..."
                                    Foreground="White"
                                    FontSize="24"
                                    Margin="20,10,10,0"/>
-                            <TextBlock Text="Ty też MOŻESZ!"
+                            <TextBlock Text="Do trainings..."
+                                   Foreground="White"
+                                   FontSize="18"
+                                   Margin="20,10,10,0"/>
+                            <TextBlock Text="Track your progress..."
                                    Foreground="White"
                                    FontSize="18"
                                    Margin="20,10,10,0"/>
@@ -63,6 +67,8 @@
                             <GradientStop Color="#ffb73a" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
+                    <Image Source="/Dashboard/Images/pies.png" Width="200" 
+                    Height="200"></Image>
                 </Border>
             </StackPanel>
 

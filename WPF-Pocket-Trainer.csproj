@@ -13,10 +13,12 @@
     <None Remove="Dashboard\Images\deadlift.png" />
     <None Remove="Dashboard\Images\fit.png" />
     <None Remove="Dashboard\Images\handwithdumbbell.png" />
+    <None Remove="Dashboard\Images\heart.png" />
     <None Remove="Dashboard\Images\HevyWieght.gif" />
     <None Remove="Dashboard\Images\Kot.png" />
     <None Remove="Dashboard\Images\militaryPress.png" />
     <None Remove="Dashboard\Images\monkey.gif" />
+    <None Remove="Dashboard\Images\pies.png" />
     <None Remove="Dashboard\Images\plus.png" />
     <None Remove="Dashboard\Images\restaurant.png" />
     <None Remove="Dashboard\Images\settings.png" />
@@ -48,6 +50,7 @@
 
   <ItemGroup>
     <Resource Include="Dashboard\Images\deadlift.png" />
+    <Resource Include="Dashboard\Images\heart.png" />
     <Resource Include="Dashboard\Images\handwithdumbbell.png" />
     <Resource Include="Dashboard\Images\HevyWieght.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -58,6 +61,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Dashboard\Images\Kot.png" />
+    <Resource Include="Dashboard\Images\pies.png" />
     <Resource Include="Dashboard\Images\plus.png" />
     <Resource Include="Dashboard\Images\restaurant.png" />
     <Resource Include="Dashboard\Images\start.png" />

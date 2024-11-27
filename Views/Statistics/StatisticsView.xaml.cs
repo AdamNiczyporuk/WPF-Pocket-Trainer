@@ -23,13 +23,10 @@ namespace WPF_Pocket_Trainer.Views.Statistics
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-           
-
             if (Window.GetWindow(this) is DashboardView mainWindow)
             {
                 mainWindow.ChangeView(new TrainingsView());
             }
-
         }
     }
 
@@ -81,7 +78,9 @@ namespace WPF_Pocket_Trainer.Views.Statistics
                 new LineSeries
                 {
                     Title = "Training Volume",
-                    Values = new ChartValues<int>(volumes)
+                    Values = new ChartValues<int>(volumes),
+                    Stroke = System.Windows.Media.Brushes.Green,
+                    Fill = System.Windows.Media.Brushes.Transparent
                 }
             };
 
@@ -95,3 +94,4 @@ namespace WPF_Pocket_Trainer.Views.Statistics
         }
     }
 }
+
