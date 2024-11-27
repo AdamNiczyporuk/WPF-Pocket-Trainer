@@ -55,7 +55,7 @@
             <StackPanel Grid.Column="0" Margin="10">
                 <TextBlock Text="Exercises Left:" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox  Height="450" ItemsSource="{Binding ExercisesToDo}" Background="#1b1d1e" BorderThickness="0">
+                    <ListBox  Height="400" ItemsSource="{Binding ExercisesToDo}" Background="#1b1d1e" BorderThickness="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" HorizontalAlignment="Stretch" Width="300">
@@ -70,7 +70,7 @@
                                             <TextBlock Text="{Binding SetsToString}" Style="{StaticResource DetailLabel}" VerticalAlignment="Center"/>
                                         </StackPanel>
                                         
-                                        <Button Grid.Column="1" Style="{StaticResource IconButton}"  CommandParameter="{Binding}">
+                                        <Button Grid.Column="1" Style="{StaticResource IconButton}" Click="DoExercise_Click" CommandParameter="{Binding}">
                                             <Image Source="/Dashboard/Images/start.png" Width="20" Height="20"/>
                                         </Button>
                                     </Grid>
@@ -85,7 +85,7 @@
             <StackPanel Grid.Column="1" Margin="10">
                 <TextBlock Text="Done Exercises:" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox  Height="450" ItemsSource="{Binding DoneExercises}" Background="#1b1d1e" BorderThickness="0">
+                    <ListBox  Height="400" ItemsSource="{Binding DoneExercises}" Background="#1b1d1e" BorderThickness="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" HorizontalAlignment="Stretch" Width="300">
@@ -112,5 +112,13 @@
                 </ScrollViewer>
             </StackPanel>
         </Grid>
+        <Button Style="{DynamicResource RoundButton}"
+                    Content="FinishTraining" 
+                    Background="Black" 
+                    Foreground="White" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Height="25" Width="130" 
+                    Grid.Row="7"/>
     </StackPanel>
 </UserControl> 

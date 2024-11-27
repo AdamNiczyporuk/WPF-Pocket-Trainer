@@ -60,7 +60,7 @@ namespace WPF_Pocket_Trainer.Views
 
             if (string.IsNullOrEmpty(planName) || string.IsNullOrEmpty(planDescription))
             {
-                MessageBox.Show("Please enter a name and description for the training plan");
+                MessageBox.Show("Please enter a name and description for the Training plan");
                 return;
             }
 
@@ -81,7 +81,7 @@ namespace WPF_Pocket_Trainer.Views
             }
             else
             {
-                MessageBox.Show("Failed to add training plan. Please try again.");
+                MessageBox.Show("Failed to add Training plan. Please try again.");
             }
         }
 
@@ -100,7 +100,7 @@ namespace WPF_Pocket_Trainer.Views
         {
             if (sender is Button button && button.CommandParameter is TrainingPlan trainingPlan)
             {
-                var result = MessageBox.Show($"Are you sure you want to delete the training plan '{trainingPlan.Name}'?",
+                var result = MessageBox.Show($"Are you sure you want to delete the Training plan '{trainingPlan.Name}'?",
                                              "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                 if (result == MessageBoxResult.Yes)
@@ -114,7 +114,7 @@ namespace WPF_Pocket_Trainer.Views
                     }
                     else
                     {
-                        MessageBox.Show("Failed to delete training plan. Please try again.");
+                        MessageBox.Show("Failed to delete Training plan. Please try again.");
                     }
                 }
             }

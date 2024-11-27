@@ -84,7 +84,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
             var exerciseWithSets = button.CommandParameter as ExerciseWithSets;
            
 
-            var result = MessageBox.Show($"Are you sure you want to delete this exercise from your training plan?",
+            var result = MessageBox.Show($"Are you sure you want to delete this exercise from your Training plan?",
                                          "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.Yes)

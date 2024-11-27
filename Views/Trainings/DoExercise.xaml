@@ -98,22 +98,23 @@
     </UserControl.Resources>
     <StackPanel>
         <StackPanel Orientation="Horizontal">
-        <TextBlock Text="Exercise:" FontSize="18" Foreground="White" FontWeight="Bold" Margin="0,0,0,20"/>
-        <TextBlock Text="{Binding Exercise.Name}" FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
+        <TextBlock Text="Exercise: " FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,20"/>
+        <TextBlock Text="{Binding Exercise.Name}" FontSize="16" Foreground="White" FontWeight="Bold" />
         </StackPanel>
-    <Grid Background="#1b1d1e">
+        <Border>
+    <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Background="#1b1d1e">
+        <StackPanel Grid.Column="0" Background="Transparent">
             <TextBlock Text="Provide your exercise performance:" FontSize="18" Foreground="White" FontWeight="Bold" Margin="0,0,0,20"/>
-            <TextBlock Text="{Binding Exercise.Name}" FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding TrainingPlan.Name}" FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
-            <StackPanel Orientation="Horizontal">
+
+
+                <StackPanel Orientation="Horizontal" Background="Transparent">
                 <TextBlock Text="Select number of sets:   " FontSize="14" Foreground="White"/>
-                <ComboBox x:Name="SetsComboBox" SelectionChanged="SetsComboBox_SelectionChanged" Width="100" Margin="0,0,0,10" Style="{StaticResource DarkComboBoxStyle}">
+                <ComboBox x:Name="SetsComboBox"  SelectionChanged="SetsComboBox_SelectionChanged" Width="100" Margin="0,0,0,10" Style="{StaticResource DarkComboBoxStyle}">
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
                     <ComboBoxItem Content="3"/>
@@ -130,24 +131,27 @@
                 <!-- Dynamic content will be added here -->
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
-                <Button Content="Add Exercise" Width="100" Margin="0,0,10,0" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50"/>
-                <Button Content="Back" Width="100" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50" />
-            </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Background="#1b1d1e" Margin="10,0,0,0">
+        <StackPanel Grid.Column="1" Background="Transparent" Margin="10,0,0,0">
             <TextBlock Text="Your goal was:" FontSize="18" Foreground="White" FontWeight="Bold" Margin="0,0,0,20"/>
-            <TextBlock Text="{Binding Exercise.Name}" FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding Exercise.Type}" FontSize="14" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding Exercise.Muscle}" FontSize="14" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding Exercise.Equipment}" FontSize="14" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding Exercise.Difficulty}" FontSize="14" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="{Binding Exercise.Instructions}" FontSize="14" Foreground="White" Margin="0,0,0,10"/>
-            <TextBlock Text="Sets and Reps:" FontSize="14" Foreground="White" Margin="0,0,0,10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Sets and Reps: " FontSize="14" Foreground="White" Margin="0,0,0,10"/>
             <TextBlock Text="{Binding Exercise.SetsToString}" FontSize="14" Foreground="White" Margin="0,0,0,10"/>
+                        </StackPanel>
+                    <Image Source="/Dashboard/Images/deadlift.png" Width="100" Height="100"></Image>
         </StackPanel>
     </Grid>
+            
+        </Border>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
+            <Button Style="{DynamicResource RoundButton}"
+                    Click="AddExerciseButton_Click" Content="Finish Exercise" Width="150" FontWeight="Bold" Margin="0,0,10,0" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50"/>
+            <Button  Style="{DynamicResource RoundButton}" 
+                     Height="25"
+                     Click="BackButton_Click" Content="Back" Width="150" Background="#3a3d3e" FontWeight="Bold" Foreground="White" BorderBrush="#4c4f50" />
+        </StackPanel>
     </StackPanel>
 </UserControl>
     

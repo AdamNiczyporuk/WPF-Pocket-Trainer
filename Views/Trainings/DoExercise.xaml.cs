@@ -1,7 +1,10 @@
-﻿using KCK_Project__Console_Pocket_trainer_.Models;
+﻿using KCK_Project__Console_Pocket_trainer_.Data;
+using KCK_Project__Console_Pocket_trainer_.Models;
+using KCK_Project__Console_Pocket_trainer_.Repositories;
 using KCK_Project__Console_Pocket_trainer_.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Pocket_Trainer.Models;
 using WPF_Pocket_Trainer.Views.TreningPlan;
 
 namespace WPF_Pocket_Trainer.Views.Trainings
@@ -21,14 +25,29 @@ namespace WPF_Pocket_Trainer.Views.Trainings
     /// <summary>
     /// Interaction logic for DoExercise.xaml
     /// </summary>
-    public partial class DoExercise : UserControl
+    public partial class DoExercise : UserControl, INotifyPropertyChanged
     {
-        private readonly ExerciseWithSets Exercise;
-        
-        public DoExercise(Training training, ExerciseWithSets exerciseToDo )
+        private ExerciseWithSets _exercise;
+        public ExerciseWithSets Exercise
         {
-            InitializeComponent();
+            get => _exercise;
+            set
+            {
+                _exercise = value;
+                OnPropertyChanged(nameof(Exercise));
+            }
         }
+
+        private readonly Training _training;
+
+        public DoExercise(Training training, ExerciseWithSets exerciseToDo)
+        {
+            _exercise = exerciseToDo;
+            _training = training;
+            InitializeComponent();
+            DataContext = this;
+        }
+
         private void SetsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SetsPanel.Children.Clear();
@@ -79,28 +98,52 @@ namespace WPF_Pocket_Trainer.Views.Trainings
                 weightList.Add(weightTextBox.Text);
             }
 
-
-            if (true)
+            var exerciseDone = new ExerciseDone
             {
-                MessageBox.Show("Exercise added to training plan!");
+                ExerciseId = _exercise.Id,
+                TrainingId = _training.Id,
+                UserId = UserSession.CurrentUser.Id,
+                Reps = string.Join(",", repsList),
+                Weight = string.Join(",", weightList),
+                Sets = repsList.Count
+            };
+            var context = new ApplicationDbContext();
+            var exerciseDoneRepository = new ExerciseDoneRepository(context);
+            var trainingPlanRepository = new TrainingPlanRepository(context);
+            if (exerciseDoneRepository.Add(exerciseDone))
+            {
+                var trainingPlan = trainingPlanRepository.GetTrainingPlanById(_training.TreningPlanId);
+                MessageBox.Show("Exercise finished!");
                 if (Window.GetWindow(this) is DashboardView mainWindow)
                 {
-                    
+                    mainWindow.ChangeView(new DoTrainingView(trainingPlan, _training));
                 }
             }
             else
             {
-                MessageBox.Show("Error while adding exercise to training plan!");
+                MessageBox.Show("Error while adding exercise to Training plan!");
             }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            var context = new ApplicationDbContext();
+
+            var trainingPlanRepository = new TrainingPlanRepository(context);
+
+            var trainingPlan = trainingPlanRepository.GetTrainingPlanById(_training.TreningPlanId);
+
             if (Window.GetWindow(this) is DashboardView mainWindow)
             {
-                //mainWindow.ChangeView(new ManageTrainingPlanExercises(_viewModel.TrainingPlan));
+                mainWindow.ChangeView(new DoTrainingView(trainingPlan, _training));
             }
+
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
-

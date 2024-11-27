@@ -124,7 +124,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
 
             if (_exerciseToTrainingPlanRepository.Update(exerciseToTrainingPlan))
             {
-                MessageBox.Show("Exercise updated in training plan!");
+                MessageBox.Show("Exercise updated in Training plan!");
                 if (Window.GetWindow(this) is DashboardView mainWindow)
                 {
                     mainWindow.ChangeView(new ManageTrainingPlanExercises(_viewModel.TrainingPlan));
@@ -132,7 +132,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
             }
             else
             {
-                MessageBox.Show("Error while updating exercise in training plan!");
+                MessageBox.Show("Error while updating exercise in Training plan!");
             }
         }
 

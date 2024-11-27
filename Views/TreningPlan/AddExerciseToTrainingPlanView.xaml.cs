@@ -99,7 +99,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
 
             if (_exerciseToTrainingPlanRepository.Add(exerciseToTrainingPlan))
             {
-                MessageBox.Show("Exercise added to training plan!");
+                MessageBox.Show("Exercise added to Training plan!");
                 if (Window.GetWindow(this) is DashboardView mainWindow)
                 {
                     mainWindow.ChangeView(new ManageTrainingPlanExercises(_viewModel.TrainingPlan));
@@ -107,7 +107,7 @@ namespace WPF_Pocket_Trainer.Views.TreningPlan
             }
             else
             {
-                MessageBox.Show("Error while adding exercise to training plan!");
+                MessageBox.Show("Error while adding exercise to Training plan!");
             }
         }
 

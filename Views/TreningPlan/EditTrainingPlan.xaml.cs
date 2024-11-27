@@ -38,7 +38,7 @@ namespace WPF_Pocket_Trainer.Views
             }
             else
             {
-                MessageBox.Show("Failed to update training plan. Please try again.");
+                MessageBox.Show("Failed to update Training plan. Please try again.");
             }
         }
 

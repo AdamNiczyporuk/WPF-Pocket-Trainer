@@ -39,7 +39,7 @@ namespace CHATAPI
                     model = "gpt-3.5-turbo",
                     messages = new[]
                     {
-                    new { role = "system", content = "Provide a 7-day diet plan based on the user's weight, height, and training sessions per week. Include only the diet plan; no introductory or concluding sentences." },
+                    new { role = "system", content = "Provide a 7-day diet plan based on the user's weight, height, and Training sessions per week. Include only the diet plan; no introductory or concluding sentences." },
                     new { role = "user", content = prompt }
                 },
                     max_tokens = 650,
