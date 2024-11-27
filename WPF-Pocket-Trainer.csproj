@@ -20,6 +20,7 @@
     <None Remove="Dashboard\Images\plus.png" />
     <None Remove="Dashboard\Images\restaurant.png" />
     <None Remove="Dashboard\Images\settings.png" />
+    <None Remove="Dashboard\Images\start.png" />
     <None Remove="Dashboard\Images\stats.png" />
     <None Remove="Dashboard\Images\x.png" />
   </ItemGroup>
@@ -58,6 +59,7 @@
     <Resource Include="Dashboard\Images\Kot.png" />
     <Resource Include="Dashboard\Images\plus.png" />
     <Resource Include="Dashboard\Images\restaurant.png" />
+    <Resource Include="Dashboard\Images\start.png" />
     <Resource Include="Dashboard\Images\settings.png" />
     <Resource Include="Dashboard\Images\stats.png" />
     <Resource Include="Dashboard\Images\x.png" />

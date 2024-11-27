@@ -48,14 +48,16 @@ namespace WPF_Pocket_Trainer.Views
         {
             if (Window.GetWindow(this) is DashboardView mainWindow)
             {
-                mainWindow.ChangeView(new ChooseTrainingPlanView());
+                mainWindow.ChangeView(new ChooseTrainingPlanView(false));
             }
         }
 
         private void NavigateToStatistics(object sender, RoutedEventArgs e)
         {
-            // Implement navigation to Statistics
-            MessageBox.Show("Navigating to Statistics");
+            if (Window.GetWindow(this) is DashboardView mainWindow)
+            {
+                mainWindow.ChangeView(new ChooseTrainingPlanView(true));
+            }
         }
     }
 }

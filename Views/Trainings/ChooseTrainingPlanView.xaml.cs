@@ -13,10 +13,12 @@ namespace WPF_Pocket_Trainer.Views.Trainings
     {
         private readonly TrainingPlanRepository _trainingPlanRepository;
         private readonly ExerciseToTrainingPlanRepository _exerciseToTrainingPlanRepository;
+        private readonly bool _isStats;
         private List<ChooseTrainingPlanViewModel> ViewModel { get; set; }
 
-        public ChooseTrainingPlanView()
+        public ChooseTrainingPlanView(bool isStats)
         {
+            _isStats = isStats;
             _trainingPlanRepository = new TrainingPlanRepository(new ApplicationDbContext());
             _exerciseToTrainingPlanRepository = new ExerciseToTrainingPlanRepository(new ApplicationDbContext());
             ViewModel = new List<ChooseTrainingPlanViewModel>();
@@ -26,8 +28,11 @@ namespace WPF_Pocket_Trainer.Views.Trainings
                 ViewModel.Add(new ChooseTrainingPlanViewModel(trainingPlan));
             }
             InitializeComponent();
-
-            TrainingPlansDataGrid.ItemsSource = ViewModel;
+            if(_isStats)
+            {
+                topTextBlock.Text = "See statistics...";
+            }
+            TrainingPlansGrid.ItemsSource = ViewModel;
             DataContext = this; // Ustawienie DataContext na bieżący obiekt
             
         }
