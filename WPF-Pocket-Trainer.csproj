@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dashboard\Images\bicepCurl.png" />
     <None Remove="Dashboard\Images\deadlift.png" />
     <None Remove="Dashboard\Images\fit.png" />
     <None Remove="Dashboard\Images\handwithdumbbell.png" />
@@ -49,6 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Dashboard\Images\bicepCurl.png" />
     <Resource Include="Dashboard\Images\deadlift.png" />
     <Resource Include="Dashboard\Images\heart.png" />
     <Resource Include="Dashboard\Images\handwithdumbbell.png" />

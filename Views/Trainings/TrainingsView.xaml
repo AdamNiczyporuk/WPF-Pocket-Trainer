@@ -48,9 +48,9 @@
                         </StackPanel>
                         <Image Width="250"
                            Height="213"
-                           Source="/Dashboard/Images/kot.png"
+                           Source="/Dashboard/Images/bicepCurl.png"
                            HorizontalAlignment="Left"
-                           VerticalAlignment="Top" Margin="192,-13,0,0"
+                           VerticalAlignment="Top" Margin="187,16,0,0"
                            />
                     </Grid>
 
