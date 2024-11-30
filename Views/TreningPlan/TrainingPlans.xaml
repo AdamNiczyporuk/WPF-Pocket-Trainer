@@ -39,9 +39,9 @@
                    FontSize="18"
                    Foreground="White"
                    FontWeight="Bold"
-                   Margin="0,20,0,20" 
+                   Margin="20,20,0,0" 
                    />
-        <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="0,0,0,20">
+        <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="20">
             <StackPanel>
                 <TextBlock Text="New Training Plan" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
                 <Grid Margin="0,0,0,10">
@@ -69,11 +69,11 @@
         </Border>
 
         <!-- Lista planów treningowych -->
-        <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="0,0,0,20">
+        <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="20,0,20,20">
             <StackPanel>
                 <TextBlock Text="Existing Training Plans" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListBox MaxHeight="200" ItemsSource="{Binding UserTrainingPlans}" Background="#1b1d1e" BorderThickness="0">
+                
+                    <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" MaxHeight="200" ItemsSource="{Binding UserTrainingPlans}" Background="#1b1d1e" BorderThickness="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
@@ -93,7 +93,7 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                </ScrollViewer>
+                
             </StackPanel>
         </Border>
         <Button Content="Back"
@@ -101,7 +101,7 @@
                         Width="150"
                         Height="25"
                         FontWeight="Bold"
-                       
+                        Margin="20,0,0,0"
                         HorizontalAlignment="Left"
                         Background="#2c2f30"
                         Foreground="White"

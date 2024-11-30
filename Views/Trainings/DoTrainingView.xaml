@@ -36,7 +36,7 @@
                    FontSize="18"
                    Foreground="White"
                    FontWeight="Bold"
-                   Margin="0,20,0,20"
+                   Margin="20,20,0,20"
                    HorizontalAlignment="Center" />
             <TextBlock Text="{Binding TrainingPlan.Name}"
                    FontSize="18"
@@ -121,6 +121,7 @@
                     VerticalAlignment="Center" 
                     Height="25" Width="150"
                     Click="FinishTraining_Click"
+                    Margin="20,0,0,0 "
                     Grid.Row="7"/>
     </StackPanel>
 </UserControl> 
