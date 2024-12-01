@@ -96,33 +96,36 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <StackPanel Background="#1b1d1e">
-        <TextBlock Text="Add Exercise to Training Plan" FontSize="18" Foreground="White" FontWeight="Bold" Margin="0,0,0,20"/>
-        <TextBlock Text="{Binding Exercise.Name}" FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
-        <TextBlock Text="{Binding TrainingPlan.Name}" FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Select number of sets:   " FontSize="14" Foreground="White"/>
-            <ComboBox x:Name="SetsComboBox" SelectionChanged="SetsComboBox_SelectionChanged" Width="100" Margin="0,0,0,10" Style="{StaticResource DarkComboBoxStyle}">
-                <ComboBoxItem Content="1"/>
-                <ComboBoxItem Content="2"/>
-                <ComboBoxItem Content="3"/>
-                <ComboBoxItem Content="4"/>
-                <ComboBoxItem Content="5"/>
-                <ComboBoxItem Content="6"/>
-                <ComboBoxItem Content="7"/>
-                <ComboBoxItem Content="8"/>
-                <ComboBoxItem Content="9"/>
-                <ComboBoxItem Content="10"/>
-            </ComboBox>
-        </StackPanel>
-        <StackPanel x:Name="SetsPanel" Margin="0,10,0,10">
-            <!-- Dynamic content will be added here -->
-        </StackPanel>
+    <Border CornerRadius="10"  Background="#1b1d1e">
+        <StackPanel  Margin="20,5,5,5">
+            <TextBlock Text="Add Exercise to Training Plan" FontSize="18" Foreground="White" FontWeight="Bold" Margin="0,0,0,20"/>
+            <TextBlock Text="{Binding Exercise.Name}" FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="{Binding TrainingPlan.Name}" FontSize="16" Foreground="White" FontWeight="Bold" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Select number of sets:   " FontSize="14" Foreground="White"/>
+                <ComboBox x:Name="SetsComboBox" SelectionChanged="SetsComboBox_SelectionChanged" Width="100" Margin="0,0,0,10" Style="{StaticResource DarkComboBoxStyle}">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel x:Name="SetsPanel" Margin="0,10,0,10">
+                <!-- Dynamic content will be added here -->
+            </StackPanel>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
-            <Button
-                Style="{DynamicResource RoundButton}" Content="Add Exercise" Width="150" Height="25" Margin="0,0,10,0" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50" Click="AddExerciseButton_Click"/>
-            <Button  Style="{DynamicResource RoundButton}" Content="Back" Width="150" Height="25" Background="#3a3d3e" Foreground="White" BorderBrush="#4c4f50" Click="BackButton_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,20,0,0">
+                <Button
+                   Style="{DynamicResource RoundButton}" Content="Add Exercise" Width="150" Height="25"  Background="#4CAF50" Foreground="White" Margin="0,0,10,0"  Click="AddExerciseButton_Click"/>
+                <Button  Style="{DynamicResource RoundButton}" Content="Back" Width="150" Height="25" Background="#4CAF50" Foreground="White"  Click="BackButton_Click" />
+                
+            </StackPanel>
         </StackPanel>
-    </StackPanel>
+    </Border>
 </UserControl>
