@@ -99,7 +99,7 @@
                         Width="150"
                         Height="25"
                         FontWeight="Bold"
-                        Margin="20,0,0,0"
+
                         HorizontalAlignment="Center"
                         Background="#4CAF50"
                         Foreground="White"
