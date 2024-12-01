@@ -32,17 +32,53 @@
             <Setter Property="Margin" Value="5,0,0,0" />
         </Style>
     </UserControl.Resources>
-    <Border CornerRadius="10"  Background="#1b1d1e">
-        <StackPanel Margin="20,5,5,5">
-            <!-- Tytuł -->
-            <TextBlock Text="Training Plans"
-                   FontSize="18"
-                   Foreground="White"
-                   FontWeight="Bold"
-                   Margin="20,20,0,0" 
-                   />
-            <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="20">
+    <StackPanel>
+        <Grid Background="#1b1d1e" Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Lista planów treningowych -->
+        <StackPanel Grid.Column="0" Margin="10">
+            <TextBlock Text="Existing Training Plans"
+                       FontSize="18"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       Margin="0,0,0,10" />
+            <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="400" ItemsSource="{Binding UserTrainingPlans}" Background="#1b1d1e" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
+                                <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" Width="180"/>
+                                <Button Style="{StaticResource IconButton}" Click="EditTrainingPlan_Click"  CommandParameter="{Binding}">
+                                    <Image Source="/Dashboard/Images/settings.png" Width="20" Height="20"/>
+                                </Button>
+                                <Button Style="{StaticResource IconButton}" Click="ManageExercises_Click"  CommandParameter="{Binding}">
+                                    <Image Source="/Dashboard/Images/fit.png" Width="20" Height="20"/>
+                                </Button>
+                                <Button Style="{StaticResource IconButton}" Click="DeleteTrainingPlan_Click" CommandParameter="{Binding}">
+                                    <Image Source="/Dashboard/Images/x.png" Width="20" Height="20"/>
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <!-- Panel dodawania nowego planu -->
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="New Training Plan"
+                       FontSize="18"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       Margin="0,0,0,10" />
                 <StackPanel>
+                    <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
+                <StackPanel>
+                        
                     <TextBlock Text="New Training Plan" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
                     <Grid Margin="0,0,0,10">
                         <TextBox x:Name="NewPlanName" 
@@ -63,38 +99,28 @@
                         Background="#4CAF50"
                         Foreground="White"
                         Click="AddNewTrainingPlan_Click"/>
+                        
+                    </StackPanel>
+                    
+                </Border>
+                    <Border Width="200" 
+                    Height="200" 
+                    CornerRadius="10"
+                    Margin="0,20,0,0"
+                    >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                <GradientStop Color="#4eff91" Offset="0.0"/>
+                                <GradientStop Color="#4eff9c" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Image Source="/Dashboard/Images/pies.png" Width="200" 
+                    Height="200"></Image>
+                    </Border>
                 </StackPanel>
-            </Border>
-
-            <!-- Lista planów treningowych -->
-            <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="20,0,20,10">
-                <StackPanel>
-                    <TextBlock Text="Existing Training Plans" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
-
-                    <ListBox ScrollViewer.VerticalScrollBarVisibility="Hidden" MaxHeight="200" ItemsSource="{Binding UserTrainingPlans}" Background="#1b1d1e" BorderThickness="0">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
-                                    <StackPanel Orientation="Horizontal" Margin="0,5,0,5">
-                                        <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" Width="200"/>
-                                        <Button Style="{StaticResource IconButton}" Click="EditTrainingPlan_Click"  CommandParameter="{Binding}">
-                                            <Image Source="/Dashboard/Images/settings.png" Width="20" Height="20"/>
-                                        </Button>
-                                        <Button Style="{StaticResource IconButton}" Click="ManageExercises_Click"  CommandParameter="{Binding}">
-                                            <Image Source="/Dashboard/Images/fit.png" Width="20" Height="20"/>
-                                        </Button>
-                                        <Button Style="{StaticResource IconButton}" Click="DeleteTrainingPlan_Click" CommandParameter="{Binding}">
-                                            <Image Source="/Dashboard/Images/x.png" Width="20" Height="20"/>
-                                        </Button>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-
-                </StackPanel>
-            </Border>
-            <Button Content="Back"
+        </StackPanel>
+    </Grid>
+        <Button Content="Back"
                         Style="{DynamicResource RoundButton}"
                         Width="150"
                         Height="25"
@@ -104,6 +130,5 @@
                         Background="#4CAF50"
                         Foreground="White"
                         Click="BackButton_Click"/>
-        </StackPanel>
-    </Border>
+    </StackPanel>
 </UserControl>
