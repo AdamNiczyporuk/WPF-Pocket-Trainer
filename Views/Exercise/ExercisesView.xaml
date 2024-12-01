@@ -44,7 +44,7 @@
     </UserControl.Resources>
 
     <Border CornerRadius="10" Background="#1b1d1e">
-        <StackPanel Margin="20">
+        <StackPanel Margin="20,5,5,5">
             <!-- Informacja o wyszukiwaniu -->
             <TextBlock Text="Search for an exercise:"
                        Foreground="White"
@@ -78,14 +78,14 @@
 
             <!-- Przycisk na dole -->
             
-            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Center">
             <Button Content="Show Exercise Details"
                     Style="{DynamicResource RoundButton}"
                     Click="ExercicseDetailView"
                     HorizontalAlignment="Left"
                     
                     Height="25"
-                    Width="150" Background="#3a3d3e" FontWeight="Bold" Foreground="White" BorderBrush="#4c4f50"
+                    Width="150" Background="#4CAF50" FontWeight="Bold" Foreground="White"
                     />
                 <Button Content="Back"
                     Style="{DynamicResource RoundButton}"
@@ -93,7 +93,7 @@
                     HorizontalAlignment="Right"
                         Height="25"
                          Margin="20,0,0,0"
-                    Width="150" Background="#3a3d3e" FontWeight="Bold" Foreground="White" BorderBrush="#4c4f50"/>
+                    Width="150" Background="#4CAF50" FontWeight="Bold" Foreground="White"/>
             </StackPanel>
         </StackPanel>
     </Border>
