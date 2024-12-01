@@ -67,7 +67,7 @@
             </Border>
 
             <!-- Lista planów treningowych -->
-            <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="20,0,20,20">
+            <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e" Margin="20,0,20,10">
                 <StackPanel>
                     <TextBlock Text="Existing Training Plans" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="0,0,0,10"/>
 

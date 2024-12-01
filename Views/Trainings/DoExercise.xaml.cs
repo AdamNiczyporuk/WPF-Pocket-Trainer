@@ -97,6 +97,11 @@ namespace WPF_Pocket_Trainer.Views.Trainings
                 repsList.Add(repsTextBox.Text);
                 weightList.Add(weightTextBox.Text);
             }
+            if(repsList.Count==0)
+            {
+                MessageBox.Show($"You need to do at least one set of exercise to finish it");
+                return;
+            }
 
             var exerciseDone = new ExerciseDone
             {
