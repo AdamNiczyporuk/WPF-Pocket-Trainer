@@ -34,67 +34,68 @@
             <Setter Property="Margin" Value="5,0,0,0" />
         </Style>
     </UserControl.Resources>
-
-    <StackPanel  Background="#1b1d1e">
-        <!-- Tytuł -->
-        <TextBlock Text="Your training plans:"
+    <Border CornerRadius="10"  Background="#1b1d1e">
+        <StackPanel Margin="20,5,5,5">
+            <!-- Tytuł -->
+            <TextBlock Text="Your training plans:"
                    FontSize="18"
                    Foreground="White"
                    FontWeight="Bold"
                    Margin="20,20,0,20" 
                    />
 
-        <!-- Lista planów treningowych -->
-        <StackPanel>
-            <TextBlock x:Name="topTextBlock" Text="Start Training!" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="20,0,0,10"/>
-            <Grid Margin="100,0,100,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <!-- Nagłówki kolumn -->
-                <TextBlock Text="Name" Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                <TextBlock Text="Exercises Count" Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                <TextBlock Text="Trainings Count" Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                <TextBlock Text="Actions" Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <!-- Lista planów treningowych -->
+            <StackPanel>
+                <TextBlock x:Name="topTextBlock" Text="Start Training!" Style="{StaticResource DetailLabel}" FontWeight="Bold" Margin="20,0,0,10"/>
+                <Grid Margin="100,0,100,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Nagłówki kolumn -->
+                    <TextBlock Text="Name" Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Exercises Count" Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Trainings Count" Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <TextBlock Text="Actions" Style="{StaticResource DetailLabel}" FontWeight="Bold" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-                <!-- Lista planów treningowych -->
-                <ItemsControl x:Name="TrainingPlansGrid" ItemsSource="{Binding TrainingPlans}" Grid.Row="1" Grid.ColumnSpan="4">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
-                                <Grid Margin="5">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                    <TextBlock Text="{Binding exercisesCount}" Style="{StaticResource DetailLabel}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                    <TextBlock Text="{Binding trainingsCount}" Style="{StaticResource DetailLabel}" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                                    <Button Style="{StaticResource IconButton}" Click="StartTraining_Click" CommandParameter="{Binding}" Grid.Column="3">
-                                        <Image Source="/Dashboard/Images/start.png" Width="20" Height="20"/>
-                                    </Button>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>
-        </StackPanel>
-        <Button Content="Back"
+                    <!-- Lista planów treningowych -->
+                    <ItemsControl x:Name="TrainingPlansGrid" ItemsSource="{Binding TrainingPlans}" Grid.Row="1" Grid.ColumnSpan="4">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource DetailBorder}" Background="#1b1d1e">
+                                    <Grid Margin="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="{Binding Name}" Style="{StaticResource DetailLabel}" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        <TextBlock Text="{Binding exercisesCount}" Style="{StaticResource DetailLabel}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        <TextBlock Text="{Binding trainingsCount}" Style="{StaticResource DetailLabel}" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        <Button Style="{StaticResource IconButton}" Click="StartTraining_Click" CommandParameter="{Binding}" Grid.Column="3">
+                                            <Image Source="/Dashboard/Images/start.png" Width="20" Height="20"/>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </StackPanel>
+            <Button Content="Back"
                     Style="{DynamicResource RoundButton}"
                     Click="BackButton_Click"
                     HorizontalAlignment="Left"
                         Height="25"
                          Margin="20,20,0,0"
                     Width="150" Background="#3a3d3e" FontWeight="Bold" Foreground="White" BorderBrush="#4c4f50"/>
-    </StackPanel>
+        </StackPanel>
+    </Border>
 </UserControl>
