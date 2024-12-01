@@ -83,11 +83,9 @@
                         Height="25"
                         Margin="0,20,0,0"
                         HorizontalAlignment="Left"
-                        Background="#2c2f30"
+                        Background="#4CAF50"
                         Foreground="White"
-                        FontWeight="Bold"
-                        BorderBrush="#4c4f50"
-                        BorderThickness="1"
+
                         Click="BackButton_Click" />
             </StackPanel>
         </ScrollViewer>
