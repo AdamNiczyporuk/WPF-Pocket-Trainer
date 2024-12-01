@@ -92,10 +92,11 @@
             <Button Content="Back"
                     Style="{DynamicResource RoundButton}"
                     Click="BackButton_Click"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                         Height="25"
                          Margin="20,20,0,0"
-                    Width="150" Background="#3a3d3e" FontWeight="Bold" Foreground="White" BorderBrush="#4c4f50"/>
+                    Width="150" Background="#4CAF50" FontWeight="Bold" Foreground="White" BorderBrush="#4c4f50"/>
         </StackPanel>
     </Border>
 </UserControl>
